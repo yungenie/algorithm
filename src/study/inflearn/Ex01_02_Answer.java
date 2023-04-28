@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  */
 
-public class Ex02_02_Answer {
+public class Ex01_02_Answer {
     public int[] solution(int[][] board, int k){
         int[] answer = new int[2];
         int n = board.length;
@@ -28,7 +28,7 @@ public class Ex02_02_Answer {
         //로봇이 움직이는 시간
         while (count < k) {
             count++;
-            //로봇의 이동 : x행 y열 현재위치 + 행열의 이동하는 방향에 따른 배열
+            //로봇의 다음 위치 : x행 y열 현재위치 + 행열의 이동하는 방향에 따른 배열
             int nx = x + dx[d];
             int ny = y + dy[d];
 
@@ -50,7 +50,7 @@ public class Ex02_02_Answer {
     }
 
     public static void main(String[] args){
-        Ex02_02_Answer T = new Ex02_02_Answer();
+        Ex01_02_Answer T = new Ex01_02_Answer();
         int[][] arr1 = {{0, 0, 0, 0, 0},
                 {0, 1, 1, 0, 0},
                 {0, 0, 0, 0, 0},
