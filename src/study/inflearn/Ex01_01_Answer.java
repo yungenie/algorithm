@@ -23,6 +23,7 @@ public class Ex01_01_Answer {
         }
 
         //시뮬레이션 - 사다리정보의 세로줄 값이 학생 배열의 인덱스로 알파벳 교환
+        //학생의 알파벳은 1번부터지만, answer[] 배열은 0부터 시작하므로 x, x-1 교환
         for (int[] line : ladder) { //가로줄 탐색
             for (int x : line) { //가로막대탐색
                 char tmp = answer[x];
