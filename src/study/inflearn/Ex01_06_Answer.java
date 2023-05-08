@@ -58,7 +58,7 @@ public class Ex01_06_Answer {
                 // 교환할 과일 종류가 같지 않고, 교환받은 후 과일 수와 전달하고 남은 과일 수보다 같거나 작아야 한다.
                 int a = getMinIndex(fruit[i]);
                 int b = getMinIndex(fruit[j]);
-                if (a != b && fruit[i][b] > 0 && fruit[j][a] > 0){
+                if (a != b && fruit[i][b] > 0 && fruit[j][a] > 0){ // 전달할 값이 0보다 커야 교환 가능.
                     if (fruit[i][a] + 1 <= fruit[i][b] - 1 && fruit[j][b] + 1 <= fruit[j][a] - 1){
                         fruit[i][a]++;
                         fruit[i][b]--;
@@ -66,7 +66,7 @@ public class Ex01_06_Answer {
                         fruit[j][a]--;
                         skip[i] = -1;
                         skip[j] = -1;
-                        break;
+                        break; // 최초에 교환학생 만나면 뒤에 for문 안돌아도 됨.
                     }
                 }
             }
