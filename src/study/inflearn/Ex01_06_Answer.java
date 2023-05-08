@@ -29,14 +29,14 @@ public class Ex01_06_Answer {
         for (int ele : fruit) {
             if (ele == min) cnt++;
         }
-        return min == 1;
+        return cnt == 1;
     }
 
     // 과일 바구니 중 최소값 배열 인덱스 찾기
     public int getMinIndex(int[] fruit) {
         int min = getMin(fruit);
         for (int i = 0; i < 3; i++) {
-            if (min == fruit[i]) return i;
+            if (fruit[i] == min) return i;
         }
         return 0;
     }
@@ -51,19 +51,21 @@ public class Ex01_06_Answer {
             // 최소값 유니크 체크
             if (isMinUnique(fruit[i]) == false) continue;
 
-            for (int j = 1; j < n; j++) {
+            for (int j = i+1; j < n; j++) {
                 if (skip[j] == -1) continue;
                 if (isMinUnique(fruit[j]) == false) continue;
 
                 // 교환할 과일 종류가 같지 않고, 교환받은 후 과일 수와 전달하고 남은 과일 수보다 같거나 작아야 한다.
                 int a = getMinIndex(fruit[i]);
                 int b = getMinIndex(fruit[j]);
-                if (a != b && fruit[i][b] > 0 && fruit[j][i] > 0){
+                if (a != b && fruit[i][b] > 0 && fruit[j][a] > 0){
                     if (fruit[i][a] + 1 <= fruit[i][b] - 1 && fruit[j][b] + 1 <= fruit[j][a] - 1){
                         fruit[i][a]++;
                         fruit[i][b]--;
                         fruit[j][b]++;
                         fruit[j][a]--;
+                        skip[i] = -1;
+                        skip[j] = -1;
                         break;
                     }
                 }
