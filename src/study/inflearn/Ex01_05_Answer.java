@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * 문제 포인트 : 봉우리지점(인덱스)를 통해 연속부분수열 찾기
  */
-public class Ex01_05 {
+public class Ex01_05_Answer {
     public int solution(int[] nums){
         int answer = 0;
         int n = nums.length;
@@ -43,7 +43,7 @@ public class Ex01_05 {
     }
 
     public static void main(String[] args){
-        Ex01_05 T = new Ex01_05();
+        Ex01_05_Answer T = new Ex01_05_Answer();
         System.out.println(T.solution(new int[]{1, 3, 2, 5, 7, 4, 2, 5, 1}));
         System.out.println(T.solution(new int[]{1, 1, 2, 3, 5, 7, 4, 3, 1, 2}));
         System.out.println(T.solution(new int[]{3, 2, 1, 3, 2, 4, 6, 7, 3, 1}));
