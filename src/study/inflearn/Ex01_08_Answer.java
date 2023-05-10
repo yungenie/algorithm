@@ -10,12 +10,14 @@ import java.util.Arrays;
 public class Ex01_08_Answer {
     public int[] solution(int[] enter, int[] exit){
         int n = enter.length;
+
+        // 입실한 사람의 번호는 enter 배열의 길이안에 범위이므로 index와 맞추기
         for(int i = 0; i < n; i++){
             enter[i]--;
             exit[i]--;
         }
 
-        // 입실한 사람이 몇번째로 왔는 지 배열에 담기
+        // 입살한 사람의 번호 순서대로 몇번째 들어왔는 지 배열에 담기
         int[] enterIdx = new int[n];
         for(int i = 0; i < n; i++){
             enterIdx[enter[i]] = i; // enter 요소 자체가 enterIdx의 index로, enter 요소의 index가 enterIdx의 요소로 셋팅
@@ -26,18 +28,19 @@ public class Ex01_08_Answer {
         int[] exitT = new int[n];
         int cnt = 0;
         for(int i = 0, j = 0; i < n; i++){
-            while(j < n && j <= enterIdx[exit[i]]){ // 퇴실하는 사람이 입실한 순서까지
-                enterT[enter[j]] = cnt++;
+            // 시간의 흐름 순으로
+            while(j < n && j <= enterIdx[exit[i]]){ // enterIdx[exit[i]] 언제 들어왔는지
+                enterT[enter[j]] = cnt++; // 입실한 사람들의 입실 시간 //연산자가 변수 뒤에 있으면 연산으르 끝낸 후 변수를 증가 시킨다.
                 j++;
             }
-            exitT[exit[i]] = cnt++;
+            exitT[exit[i]] = cnt++;  // 입실한 사람들의 퇴실 시간
         }
 
         // 각 사람별로 반드시 만난 사람의 수
         int[] answer = new int[n];
         for(int i = 0; i < n; i++){
             for(int j = i + 1; j < n; j++){
-                // 만나는 조건 = !안만나는 조건(나간 사람의 시간 < 들어온 시간) 앞 -> 뒤 / 뒤 -> 앞 서로 비교
+                // 만나는 조건 = !안만나는 조건(A,B 나간 사람의 시간 < 들어온 시간)
                 if(!(exitT[i] < enterT[j] || exitT[j] < enterT[i])){
                     answer[i]++;
                     answer[j]++;
