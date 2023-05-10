@@ -24,6 +24,7 @@ public class Ex01_04_Answer {
         // k번째로 온 사람들 빈 좌석 앉기 (시계 방향으로 돌아가면서)
         while(count < k){ // N번째 조건에, N+1번째의 좌석번호 셋팅
             // 다음 사람이 앉을 좌석 (이동하는 좌석)
+
             int nx = x + dx[d];
             int ny = y + dy[d];
 
@@ -35,22 +36,26 @@ public class Ex01_04_Answer {
 
             // 빈자리에 앉기
             seat[x][y] = count;
+            //System.out.printf("count = %d, seat[%d][%d] = %d \n", count, x, y, seat[x][y]);
 
             // 다음 손님을 위한 값 셋팅
             count++;
             x = nx;
             y = ny;
+
         }
         // k번째 좌석번호 구하기 (좌석번호는 1부터 이므로, 배열의 인덱스 + 1)
         answer[0] = x + 1;
         answer[1] = y + 1;
+        //System.out.println(" seat[x][y]= " + seat[x][y]);
+        //System.out.printf("count = %d, seat[%d][%d] = %d \n", count, x, y, seat[x][y]);
         return answer;
 
     }
 
     public static void main(String[] args){
         Ex01_04_Answer T = new Ex01_04_Answer();
-        System.out.println(Arrays.toString(T.solution(6, 5, 1)));
+        System.out.println(Arrays.toString(T.solution(6, 5, 2)));
         System.out.println(Arrays.toString(T.solution(6, 5, 12)));
         System.out.println(Arrays.toString(T.solution(6, 5, 20)));
         System.out.println(Arrays.toString(T.solution(6, 5, 30)));
