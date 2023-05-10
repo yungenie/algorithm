@@ -17,7 +17,7 @@ public class Ex01_08_Answer {
             exit[i]--;
         }
 
-        // 입살한 사람의 번호 순서대로 몇번째 들어왔는 지 배열에 담기
+        // 몇번째로 왔는 지 - 입실한 사람의 번호 순서대로 몇번째 들어왔는 지 배열에 담기
         int[] enterIdx = new int[n];
         for(int i = 0; i < n; i++){
             enterIdx[enter[i]] = i; // enter 요소 자체가 enterIdx의 index로, enter 요소의 index가 enterIdx의 요소로 셋팅
@@ -28,7 +28,7 @@ public class Ex01_08_Answer {
         int[] exitT = new int[n];
         int cnt = 0;
         for(int i = 0, j = 0; i < n; i++){
-            // 시간의 흐름 순으로
+            // 시간의 흐름 순으로 시뮬레이션 (시간복잡도 O(n))
             while(j < n && j <= enterIdx[exit[i]]){ // enterIdx[exit[i]] 언제 들어왔는지
                 enterT[enter[j]] = cnt++; // 입실한 사람들의 입실 시간 //연산자가 변수 뒤에 있으면 연산으르 끝낸 후 변수를 증가 시킨다.
                 j++;
