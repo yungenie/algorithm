@@ -6,7 +6,7 @@ import java.util.HashMap;
  *  한 번만 사용한 최초 문자 - 해싱 & 시간파싱 (HashMap 메서드 활용)
  *
  */
-public class Ex01_09_Answer {
+public class Ex02_09_Answer {
     public int solution(String s){
         HashMap<Character, Integer> sH = new HashMap<>();
         for(char x : s.toCharArray()){
@@ -20,7 +20,7 @@ public class Ex01_09_Answer {
     }
 
     public static void main(String[] args){
-        Ex01_09_Answer T = new Ex01_09_Answer();
+        Ex02_09_Answer T = new Ex02_09_Answer();
         System.out.println(T.solution("statitsics"));
         System.out.println(T.solution("aabb"));
         System.out.println(T.solution("stringshowtime"));
