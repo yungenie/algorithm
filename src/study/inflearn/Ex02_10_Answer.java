@@ -24,7 +24,6 @@ public class Ex02_10_Answer {
 
         // 추가된 값 구하기
         for(int i = 0; i < tmp.length(); i++){
-            System.out.println("tmp.charAt(i) = " + tmp.charAt(i));
             answer[i] = max - sH.getOrDefault(tmp.charAt(i), 0);
         }
         return answer;
@@ -33,9 +32,9 @@ public class Ex02_10_Answer {
     public static void main(String[] args){
         Ex02_10_Answer T = new Ex02_10_Answer();
         System.out.println(Arrays.toString(T.solution("aaabc")));
-        //System.out.println(Arrays.toString(T.solution("aabb")));
-        //System.out.println(Arrays.toString(T.solution("abcde")));
-        //System.out.println(Arrays.toString(T.solution("abcdeabc")));
-        //System.out.println(Arrays.toString(T.solution("abbccddee")));
+        System.out.println(Arrays.toString(T.solution("aabb")));
+        System.out.println(Arrays.toString(T.solution("abcde")));
+        System.out.println(Arrays.toString(T.solution("abcdeabc")));
+        System.out.println(Arrays.toString(T.solution("abbccddee")));
     }
 }
