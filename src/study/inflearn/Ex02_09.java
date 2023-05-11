@@ -4,7 +4,7 @@ package study.inflearn;
  *  한 번만 사용한 최초 문자 - 해싱 & 시간파싱
  */
 
-public class Ex01_09 {
+public class Ex02_09 {
     public String getString(char c) {
         return String.valueOf(c);
     }
@@ -36,7 +36,7 @@ public class Ex01_09 {
     }
 
     public static void main(String[] args){
-        Ex01_09 T = new Ex01_09();
+        Ex02_09 T = new Ex02_09();
         System.out.println(T.solution("statitsics"));
         System.out.println(T.solution("aabb"));
         System.out.println(T.solution("aaabbb"));
