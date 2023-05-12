@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  한 번만 사용한 최초 문자 - 해싱 & 시간파싱 (HashMap 메서드 활용)
+ *
+ */
 public class Ex02_10 {
     public int[] solution(String s){
         int[] answer = new int[5];

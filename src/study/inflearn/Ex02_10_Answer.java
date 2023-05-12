@@ -3,6 +3,10 @@ package study.inflearn;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ *  같은 빈도수 만들기 - 해싱 & 시간파싱
+ *
+ */
 public class Ex02_10_Answer {
     public int[] solution(String s){
         int[] answer = new int[5];
