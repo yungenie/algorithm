@@ -19,13 +19,11 @@ public class Ex02_11 {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        System.out.println("map = " + map);
         // 배열리스트에 문자열 빈도수 map 담기
         List<Map.Entry> list = new ArrayList<>();
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             list.add(entry);
         }
-        System.out.println("list = " + list);
 
         // 지워야할 최소 개수 구하기
         int x = 0,y = 0;
