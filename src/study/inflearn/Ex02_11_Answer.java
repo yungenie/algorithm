@@ -43,11 +43,11 @@ public class Ex02_11_Answer {
 
     public static void main(String[] args) {
         Ex02_11_Answer T = new Ex02_11_Answer();
-        //System.out.println(T.solution("aaabbbcc"));
-        //System.out.println(T.solution("aaabbc"));
-        //System.out.println(T.solution("aebbbbc"));
+        System.out.println(T.solution("aaabbbcc"));
+        System.out.println(T.solution("aaabbc"));
+        System.out.println(T.solution("aebbbbc"));
         System.out.println(T.solution("aaabbbcccde"));
-        //System.out.println(T.solution("aaabbbcccdddeeeeeff"));
+        System.out.println(T.solution("aaabbbcccdddeeeeeff"));
     }
 }
 
