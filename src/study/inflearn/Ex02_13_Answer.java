@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * 회장 선거 - 해싱,시간파싱
+ */
 public class Ex02_13_Answer {
     public String solution(String[] votes, int k){
         String answer = " ";
