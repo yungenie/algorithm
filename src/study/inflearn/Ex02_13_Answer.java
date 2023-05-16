@@ -6,8 +6,13 @@ import java.util.HashSet;
 
 /**
  * 회장 선거 - 해싱,시간파싱
+ *
+ * HashMap.putIfAbsent(Object key, Object value)
+ * - Key 값이 존재하는 경우 Value의 값을 반환하고, Key값이 존재하지 않는 경우 Key와 Value를 저장하고 Null을 반환합니다.
+ *
  */
 public class Ex02_13_Answer {
+
     public String solution(String[] votes, int k){
         String answer = " ";
         HashMap<String, HashSet<String>> voteHash = new HashMap<>();
