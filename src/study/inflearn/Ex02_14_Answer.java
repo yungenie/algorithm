@@ -42,7 +42,7 @@ public class Ex02_14_Answer {
         // 특정 범위의 시간에 보안키를 사용한 사람들
         int s = getTime(times.split(" ")[0]);
         int e = getTime(times.split(" ")[1]);
-        //System.out.printf("\ns = %d, e = %d \n", s, e);
+        //System.out.printf("\ns = %d, e = %d \n", s, e); //s = 513, e = 585
         ArrayList<String> res = new ArrayList<>(); //answer 배열의 크기를 모르기때문에 ArrayList에 담기
         for(Info ob : tmp){
             if(ob.time >= s && ob.time <= e){
