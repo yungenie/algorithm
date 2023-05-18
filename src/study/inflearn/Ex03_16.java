@@ -10,6 +10,7 @@ import java.util.*;
  * 어떤자료구조를 써야할지 정확히 생각 못해냄.
  * ArrayList 초기화 하는 거 몰랐음.
  * for i,j 활용 약함.
+ * for i<n-1, j=i+1 j<n-1
  *
  */
 public class Ex03_16 {
