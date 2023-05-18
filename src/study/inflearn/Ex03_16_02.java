@@ -16,6 +16,12 @@ public class Ex03_16_02 {
         int answer = 0;
 
         // 중복 및 정렬 후 선형자료형 담기
+        /**
+         * 강사님 강의 피드백
+         * TreeSet : 중복제거, 자동정렬
+         * ->  이진트리 구조로 되어 있다. 레드블랙트리로 구현되어 있어요.
+         * contains()로 값이 유무 확인하면 트리이기 때문에 시간복잡도가 O(logn) 입니다.
+         */
         TreeSet<Integer> set = new TreeSet<>();
         for (int num : nums) {
             set.add(num);
