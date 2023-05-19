@@ -78,5 +78,6 @@ public class Ex03_17 {
         System.out.println(T.solution("2(ab3((cd)))", "abcdcdcdabcdcdcd"));
         System.out.println(T.solution("2(2(ab)3(2(ac)))", "ababacacacacacacababacacacacacac"));
         System.out.println(T.solution("3(ab2(sg))", "absgsgabsgsgabsgsg"));
+        System.out.println(T.solution("3(a2(bc)2(ab))", "abcbcabababcbcabababcbcabab"));
     }
 }
