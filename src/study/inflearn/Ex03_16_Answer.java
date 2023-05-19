@@ -7,7 +7,7 @@ import java.util.HashSet;
  *
  * set : 중복된 원소를 제거하는 게 특징 입니다. (중복을 허용하지 않음)
  * HashSet : 기본적으로 해시로 구현되어 있습니다. 모든 검색, 삽입이 해싱으로 O(1)로 모든 연산들이 상수시간의 시간복잡도를 갖습니다.
- * HashSet.contains() : contains()로 값 유무 확인하면 해싱을 하기 때문에 시간복잡도가 O(1) 입니다.
+ * Boolen HashSet.contains(Object o) : contains()로 값 유무 확인하면 해싱을 하기 때문에 시간복잡도가 O(1) 입니다.
  *
  */
 public class Ex03_16_Answer {
