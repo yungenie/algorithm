@@ -1,10 +1,10 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 /**
  *  한 번만 사용한 최초 문자 - 해싱 & 시간파싱
  */
 
-public class Ex02_09 {
+public class Ex02_01 {
     public String getString(char c) {
         return String.valueOf(c);
     }
@@ -19,7 +19,7 @@ public class Ex02_09 {
                     count++;
                 }
             }
-
+            //todo 다시 생각해보기
             if (count >= 2) {
                 count = 0;
                 total++; // 내 자신과 비교대상 포함해서 2개 이상일 때
@@ -36,7 +36,7 @@ public class Ex02_09 {
     }
 
     public static void main(String[] args){
-        Ex02_09 T = new Ex02_09();
+        Ex02_01 T = new Ex02_01();
         System.out.println(T.solution("statitsics"));
         System.out.println(T.solution("aabb"));
         System.out.println(T.solution("aaabbb"));
