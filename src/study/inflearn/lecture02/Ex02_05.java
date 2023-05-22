@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * 회장 선거 - 해싱,시간파싱
  * 풀이 시간 초과
  */
-public class Ex02_13 {
+public class Ex02_05 {
     public String solution(String[] votes, int k){
         String answer = " ";
         int n = votes.length;
@@ -65,7 +65,7 @@ public class Ex02_13 {
     }
 
     public static void main(String[] args){
-        Ex02_13 T = new Ex02_13();
+        Ex02_05 T = new Ex02_05();
         System.out.println(T.solution(new String[]{"john tom", "daniel luis", "john luis", "luis tom", "daniel tom", "luis john"}, 2));
         System.out.println(T.solution(new String[]{"john tom", "park luis", "john luis", "luis tom", "park tom", "luis john", "luis park", "park john", "john park", "tom john", "tom park", "tom luis"}, 2));
         System.out.println(T.solution(new String[]{"cody tom", "john tom", "cody luis", "daniel luis", "john luis", "luis tom", "daniel tom", "luis john"}, 2));
