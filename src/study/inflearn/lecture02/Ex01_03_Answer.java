@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 /**
  * 잃어버린 강아지 - 시뮬레이션 & 구현
