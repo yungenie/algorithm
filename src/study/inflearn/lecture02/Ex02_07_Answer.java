@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * 경고 메일 - 해싱, 시간파싱
  */
-public class Ex02_15_Answer {
+public class Ex02_07_Answer {
     public int getTime(String time){
         int H = Integer.parseInt(time.split(":")[0]);
         int M = Integer.parseInt(time.split(":")[1]);
@@ -37,7 +37,7 @@ public class Ex02_15_Answer {
     }
 
     public static void main(String[] args){
-        Ex02_15_Answer T = new Ex02_15_Answer();
+        Ex02_07_Answer T = new Ex02_07_Answer();
         System.out.println(Arrays.toString(T.solution(new String[]{"john 09:30 in", "daniel 10:05 in", "john 10:15 out", "luis 11:57 in", "john 12:03 in", "john 12:20 out", "luis 12:35 out", "daniel 15:05 out"}, 60)));
         System.out.println(Arrays.toString(T.solution(new String[]{"bill 09:30 in", "daniel 10:00 in", "bill 11:15 out", "luis 11:57 in", "john 12:03 in", "john 12:20 out", "luis 14:35 out", "daniel 14:55 out"}, 120)));
         System.out.println(Arrays.toString(T.solution(new String[]{"cody 09:14 in", "bill 09:25 in", "luis 09:40 in", "bill 10:30 out", "cody 10:35 out", "luis 10:35 out", "bill 11:15 in", "bill 11:22 out", "luis 15:30 in", "luis 15:33 out"}, 70)));
