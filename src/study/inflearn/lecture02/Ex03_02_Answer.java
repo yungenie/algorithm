@@ -1,11 +1,11 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.Stack;
 /**
  * 겹쳐진 압축 해제 - 자료구조 활용
  * Character.isDigit(char ch) : char 값이 숫자 인지 여부를 판단하여  true/flase 리턴합니다.
  */
-public class Ex03_17_Answer {
+public class Ex03_02_Answer {
     public String solution(String s){
         String answer = "";
         Stack<String> st = new Stack<>();
@@ -49,7 +49,7 @@ public class Ex03_17_Answer {
     }
 
     public static void main(String[] args){
-        Ex03_17_Answer T = new Ex03_17_Answer();
+        Ex03_02_Answer T = new Ex03_02_Answer();
         System.out.println(T.solution("3(a2(b))ef"));
         //System.out.println(T.solution("2(ab)k3(bc)"));
         //System.out.println(T.solution("2(ab3((cd)))"));
