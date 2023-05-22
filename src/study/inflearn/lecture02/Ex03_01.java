@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.*;
 
@@ -13,7 +13,7 @@ import java.util.*;
  * for i<n-1, j=i+1 j<n-1
  *
  */
-public class Ex03_16 {
+public class Ex03_01 {
     public int solution(int[] nums){
         int answer = 0;
         int n = nums.length;
@@ -57,7 +57,7 @@ public class Ex03_16 {
     }
 
     public static void main(String[] args){
-        Ex03_16 T = new Ex03_16();
+        Ex03_01 T = new Ex03_01();
         System.out.println(T.solution(new int[]{8, 1, 9, 3, 10, 2, 4, 0, 2, 3}));
         System.out.println(T.solution(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0}));
         System.out.println(T.solution(new int[]{3, 3, 3, 3, 3, 3, 3, 3}));
