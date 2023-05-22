@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.time.LocalTime;
 import java.util.*;
@@ -11,7 +11,7 @@ import java.util.*;
  * isBefore(LocalDate other) - 주어진 날짜가, 파라미터로 전달받은 날짜와 작을 경우 true를 리턴합니다.
  * isAfter(LocalDate other) - 주어진 날짜가, 파라미터로 전달받은 날짜와 클 경우 true를 리턴합니다.
  */
-public class Ex02_14 {
+public class Ex02_06 {
 
     /***
      *
@@ -60,7 +60,7 @@ public class Ex02_14 {
     }
 
     public static void main(String[] args){
-        Ex02_14 T = new Ex02_14();
+        Ex02_06 T = new Ex02_06();
         System.out.println(Arrays.toString(T.solution(new String[]{"john 15:23", "daniel 09:30", "tom 07:23", "park 09:59", "luis 08:57"}, "08:33 09:45")));
         System.out.println(Arrays.toString(T.solution(new String[]{"ami 12:56", "daniel 15:00", "bob 19:59", "luis 08:57", "bill 17:35", "tom 07:23", "john 15:23", "park 09:59"}, "15:01 19:59")));
         System.out.println(Arrays.toString(T.solution(new String[]{"cody 14:20", "luis 10:12", "alice 15:40", "tom 15:20", "daniel 14:50"}, "14:20 15:20")));
