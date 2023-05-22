@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import java.util.Queue;
  *   boolean add(Object o) : Queue에 추가. 성공하면 true 반환. 저장공간이 부족하면 IIegalStateException발생
  *   boolean poll() : Queue에 객체를 꺼내서 반환. 비어있으면 null 반환
  */
-public class Ex03_18_Answer {
+public class Ex03_03_Answer {
     public int[] solution(int[] arrival, int[] state){
         Queue<Integer> enter = new LinkedList<>(); // 들어가려는 사원 대기명단
         Queue<Integer> exit = new LinkedList<>(); // 나가려는 사원 대기명단
@@ -59,7 +59,7 @@ public class Ex03_18_Answer {
     }
 
     public static void main(String[] args){
-        Ex03_18_Answer T = new Ex03_18_Answer();
+        Ex03_03_Answer T = new Ex03_03_Answer();
         System.out.println(Arrays.toString(T.solution(new int[]{0, 1, 1, 1, 2, 3, 8, 8}, new int[]{1, 0, 0, 1, 0, 0, 1, 0})));
         System.out.println(Arrays.toString(T.solution(new int[]{3, 3, 4, 5, 5, 5}, new int[]{1, 0, 1, 0, 1, 0})));
         System.out.println(Arrays.toString(T.solution(new int[]{2, 2, 2, 3, 4, 8, 8, 9, 10, 10}, new int[]{1, 0, 0, 0, 1, 1, 0, 1, 1, 0})));
