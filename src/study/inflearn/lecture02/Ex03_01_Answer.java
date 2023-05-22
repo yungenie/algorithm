@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.HashSet;
 
@@ -10,7 +10,7 @@ import java.util.HashSet;
  * Boolen HashSet.contains(Object o) : contains()로 값 유무 확인하면 해싱을 하기 때문에 시간복잡도가 O(1) 입니다.
  *
  */
-public class Ex03_16_Answer {
+public class Ex03_01_Answer {
     public int solution(int[] nums){
         int answer = 0;
 
@@ -35,7 +35,7 @@ public class Ex03_16_Answer {
     }
 
     public static void main(String[] args){
-        Ex03_16_Answer T = new Ex03_16_Answer();
+        Ex03_01_Answer T = new Ex03_01_Answer();
         System.out.println(T.solution(new int[]{8, 1, 9, 3, 10, 2, 4, 0, 2, 3}));
         System.out.println(T.solution(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0}));
         System.out.println(T.solution(new int[]{3, 3, 3, 3, 3, 3, 3, 3}));

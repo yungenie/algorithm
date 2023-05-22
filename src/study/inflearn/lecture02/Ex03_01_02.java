@@ -1,7 +1,6 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.TreeSet;
 
 /**
@@ -11,7 +10,7 @@ import java.util.TreeSet;
  * ArrayList 순차자료형으로 인덱스 존재함
  *
  */
-public class Ex03_16_02 {
+public class Ex03_01_02 {
     public int solution(int[] nums){
         int answer = 0;
 
@@ -65,7 +64,7 @@ public class Ex03_16_02 {
     }
 
     public static void main(String[] args){
-        Ex03_16_02 T = new Ex03_16_02();
+        Ex03_01_02 T = new Ex03_01_02();
         System.out.println(T.solution(new int[]{8, 1, 9, 3, 10, 2, 4, 0, 2, 3}));
         System.out.println(T.solution(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0}));
         System.out.println(T.solution(new int[]{3, 3, 3, 3, 3, 3, 3, 3}));
