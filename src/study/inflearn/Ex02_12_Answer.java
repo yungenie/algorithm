@@ -1,7 +1,9 @@
 package study.inflearn;
 
 import java.util.HashMap;
-
+/**
+ *  음수가 있는 부분수열 - 해싱,시간파싱
+ */
 public class Ex02_12_Answer {
     public int solution(int[] nums, int m){
         int answer = 0;
