@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.HashSet;
  *  서로 다른 빈도수 만들기 - 해싱 & 시간파싱
  *
  */
-public class Ex02_11_Answer {
+public class Ex02_03_Answer {
     public int solution(String s) {
         int answer = 0;
         HashMap<Character, Integer> sH = new HashMap<>();
@@ -42,7 +42,7 @@ public class Ex02_11_Answer {
     }
 
     public static void main(String[] args) {
-        Ex02_11_Answer T = new Ex02_11_Answer();
+        Ex02_03_Answer T = new Ex02_03_Answer();
         System.out.println(T.solution("aaabbbcc"));
         System.out.println(T.solution("aaabbc"));
         System.out.println(T.solution("aebbbbc"));
