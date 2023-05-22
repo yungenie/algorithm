@@ -1,9 +1,9 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 /**
  *  음수가 있는 부분수열 - 해싱,시간파싱
  */
-public class Ex02_12 {
+public class Ex02_04 {
     public int solution(int[] nums, int m){
         int answer = 0;
         int n = nums.length;
@@ -25,7 +25,7 @@ public class Ex02_12 {
     }
 
     public static void main(String[] args){
-        Ex02_12 T = new Ex02_12();
+        Ex02_04 T = new Ex02_04();
         System.out.println(T.solution(new int[]{2, 2, 3, -1, -1, -1, 3, 1, 1}, 5));
         System.out.println(T.solution(new int[]{1, 2, 3, -3, 1, 2, 2, -3}, 5));
         System.out.println(T.solution(new int[]{1, 2, 3, -3, 1, 2}, 3));
