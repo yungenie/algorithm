@@ -1,7 +1,4 @@
-package study.inflearn;
-
-import java.util.ArrayList;
-import java.util.List;
+package study.inflearn.lecture02;
 
 /**
  * 과일 가져가기 - 시뮬레이션 & 구현
