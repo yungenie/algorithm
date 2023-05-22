@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.Stack;
 
@@ -12,7 +12,7 @@ import java.util.Stack;
  * 스택에 객체를 저장 : Stack.push()
  * 문자열의 값이 숫자인지 확인 : 형변환 후 NumberFormatException 예외처리
  */
-public class Ex03_17 {
+public class Ex03_02 {
 
     public static boolean isNumeric(String s) {
         try {
@@ -72,7 +72,7 @@ public class Ex03_17 {
     }
 
     public static void main(String[] args){
-        Ex03_17 T = new Ex03_17();
+        Ex03_02 T = new Ex03_02();
         System.out.println(T.solution("3(a2(b))ef", "abbabbabbef"));
         System.out.println(T.solution("2(ab)k3(bc)", "ababkbcbcbc"));
         System.out.println(T.solution("2(ab3((cd)))", "abcdcdcdabcdcdcd"));
