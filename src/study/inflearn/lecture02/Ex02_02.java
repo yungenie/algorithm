@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
  *  한 번만 사용한 최초 문자 - 해싱 & 시간파싱 (HashMap 메서드 활용)
  *
  */
-public class Ex02_10 {
+public class Ex02_02 {
     public int[] solution(String s){
         int[] answer = new int[5];
 
@@ -29,6 +29,7 @@ public class Ex02_10 {
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             max = Math.max(max, entry.getValue());
         }
+        //todo map.values().stream().max(comperator.naturalOrder()).get().intValue()
 
         // a,b,c,d,e 추가한 빈도수 구하기 (최대 빈도수 기준)
         int count = 0;
@@ -41,7 +42,7 @@ public class Ex02_10 {
     }
 
     public static void main(String[] args){
-        Ex02_10 T = new Ex02_10();
+        Ex02_02 T = new Ex02_02();
         System.out.println(Arrays.toString(T.solution("aaabc")));
         System.out.println(Arrays.toString(T.solution("aabb")));
         System.out.println(Arrays.toString(T.solution("abcde")));

@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.HashMap;
  *  같은 빈도수 만들기 - 해싱 & 시간파싱
  *
  */
-public class Ex02_10_Answer {
+public class Ex02_02_Answer {
     public int[] solution(String s){
         int[] answer = new int[5];
 
@@ -34,7 +34,7 @@ public class Ex02_10_Answer {
     }
 
     public static void main(String[] args){
-        Ex02_10_Answer T = new Ex02_10_Answer();
+        Ex02_02_Answer T = new Ex02_02_Answer();
         System.out.println(Arrays.toString(T.solution("aaabc")));
         System.out.println(Arrays.toString(T.solution("aabb")));
         System.out.println(Arrays.toString(T.solution("abcde")));
