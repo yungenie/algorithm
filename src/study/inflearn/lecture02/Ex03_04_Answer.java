@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -19,7 +19,7 @@ import java.util.Queue;
  * LinkedList는 Queue 인터페이스의 대표적인 구현체이다. Queue q = new Queue 선언하고 있었음
  *
  */
-public class Ex03_19_Answer {
+public class Ex03_04_Answer {
     public int getTime(String time){
         int H = Integer.parseInt(time.split(":")[0]);
         int M = Integer.parseInt(time.split(":")[1]);
@@ -61,7 +61,7 @@ public class Ex03_19_Answer {
     }
 
     public static void main(String[] args){
-        Ex03_19_Answer T = new Ex03_19_Answer();
+        Ex03_04_Answer T = new Ex03_04_Answer();
         System.out.println(T.solution(new int[]{30, 20, 25, 15}, new String[]{"10:23 0", "10:40 3", "10:42 2", "10:52 3", "11:10 2"}));
         System.out.println(T.solution(new int[]{30, 20, 25, 15}, new String[]{"10:23 0", "10:40 3", "10:42 2", "10:52 3", "15:10 0", "15:20 3", "15:22 1", "15:23 0", "15:25 0"}));
         System.out.println(T.solution(new int[]{30, 20, 25, 15}, new String[]{"10:20 1", "10:40 1", "11:00 1", "11:20 1", "11:40 1"}));
