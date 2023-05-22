@@ -1,4 +1,4 @@
-package study.inflearn;
+package study.inflearn.lecture02;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.HashSet;
  * - Key 값이 존재하는 경우 Value의 값을 반환하고, Key값이 존재하지 않는 경우 Key와 Value를 저장하고 Null을 반환합니다.
  *
  */
-public class Ex02_13_Answer {
+public class Ex02_05_Answer {
 
     public String solution(String[] votes, int k){
         String answer = " ";
@@ -49,7 +49,7 @@ public class Ex02_13_Answer {
     }
 
     public static void main(String[] args){
-        Ex02_13_Answer T = new Ex02_13_Answer();
+        Ex02_05_Answer T = new Ex02_05_Answer();
         System.out.println(T.solution(new String[]{"john tom", "daniel luis", "john luis", "luis tom", "daniel tom", "luis john"}, 2));
         System.out.println(T.solution(new String[]{"john tom", "park luis", "john luis", "luis tom", "park tom", "luis john", "luis park", "park john", "john park", "tom john", "tom park", "tom luis"}, 2));
         System.out.println(T.solution(new String[]{"cody tom", "john tom", "cody luis", "daniel luis", "john luis", "luis tom", "daniel tom", "luis john"}, 2));
