@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * CPU 스케쥴링 - 자료구조 활용
- * 문제 개요 -
+ * 문제 개요 - LinkedList, PriorityQueue 활용해서 조건에 따라 처리하고, 끝난 시간을 계속 업데이트 문제입니다.
  * 배운점
  * - LinkedList 저장순서가 유지되는 자료구조
  * - PriorityQueue 우선순위가 높은 것(요소값 작은)부터 꺼내는 우선순위 큐
