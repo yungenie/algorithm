@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
 public class PrioityQueueTest {
     public static void main(String[] args) {
 
-        // 우선순위가 낮은 순으로 정렬
+        // 우선순위가 높은 순으로 정렬
         System.out.println("PriorityQueue 우선순위가 높은 것(숫자가 작을 수록 우선순위는 높다)");
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         pq.offer(10);
@@ -28,7 +28,7 @@ public class PrioityQueueTest {
             System.out.println(obj);
         }
 
-        // 우선순위가 높은 순으로 정렬
+        // 우선순위가 낮은 순으로 정렬
         System.out.println("PriorityQueue 우선순위가 낮은 것(숫자가 클수룩 우선순위는 낮다)");
         PriorityQueue<Integer> pqr = new PriorityQueue<>(Collections.reverseOrder());
         pqr.offer(10);
