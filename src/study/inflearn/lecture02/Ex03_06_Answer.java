@@ -20,7 +20,7 @@ public class Ex03_06_Answer {
         int[] roomCnt = new int[n];
 
         // 회의실 번호 초기화 (빈 회의실)
-        TreeSet<Integer> useRoom = new TreeSet<>(); //TreeSet 은 레드블랙트리로 자료구조로 구현되어 있어 O(logn)만에 오름차순 정렬됩니다.
+        TreeSet<Integer> useRoom = new TreeSet<>(); //TreeSet 은 레드블랙트리 자료구조로 구현되어있어 O(logn)만에 오름차순 정렬됩니다.
         for (int i = 0; i < n; i++) {
             useRoom.add(i);
         }
@@ -51,6 +51,14 @@ public class Ex03_06_Answer {
             }
         }
 
+        // todo 위 강사님 코드랑 비교에서 효율적인지 확인, 시간복잡도
+        /*int max = Arrays.stream(roomCnt).max().getAsInt();
+        for (int i = 0; i < n; i++) {
+            if (roomCnt[i] == max) {
+                answer = i;
+            }
+        }*/
+
         return answer;
 
     }
@@ -58,9 +66,9 @@ public class Ex03_06_Answer {
     public static void main(String[] args){
         Ex03_06_Answer T = new Ex03_06_Answer();
         System.out.println(T.solution(2, new int[][]{{0, 5}, {2, 7}, {4, 5}, {7, 10}, {9, 12}}));
-        //System.out.println(T.solution(2, new int[][]{{2, 7}, {0, 5}, {4, 5}, {9, 12}, {7, 10}}));
-        //System.out.println(T.solution(3, new int[][]{{3, 9}, {1, 10}, {5, 8}, {10, 15}, {9, 14}, {12, 14}, {15, 20}}));
-        //System.out.println(T.solution(3, new int[][]{{1, 30}, {2, 15}, {3, 10}, {4, 12}, {6, 10}}));
-        //System.out.println(T.solution(4, new int[][]{{3, 20}, {1, 25}, {5, 8}, {10, 15}, {9, 14}, {12, 14}, {15, 20}}));
+        System.out.println(T.solution(2, new int[][]{{2, 7}, {0, 5}, {4, 5}, {9, 12}, {7, 10}}));
+        System.out.println(T.solution(3, new int[][]{{3, 9}, {1, 10}, {5, 8}, {10, 15}, {9, 14}, {12, 14}, {15, 20}}));
+        System.out.println(T.solution(3, new int[][]{{1, 30}, {2, 15}, {3, 10}, {4, 12}, {6, 10}}));
+        System.out.println(T.solution(4, new int[][]{{3, 20}, {1, 25}, {5, 8}, {10, 15}, {9, 14}, {12, 14}, {15, 20}}));
     }
 }
