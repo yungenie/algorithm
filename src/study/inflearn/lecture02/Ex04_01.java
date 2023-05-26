@@ -22,7 +22,7 @@ public class Ex04_01 {
             int bsLen = bs.length();
             int count = 0;
             for (int j = 0; j < bsLen; j++) {
-                if (bs.charAt(j) == '1') count++;
+                if (bs.charAt(j) == '1') count++; // 이진수에서 1 문자 리터럴이 있는 지 비교
             }
             pq.offer(new int[]{count, i});
         }
