@@ -44,15 +44,14 @@ public class Ex03_06_Answer {
         }
 
         int maxi = 0;
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < n; i++){ // O(n)
             if(roomCnt[i] > maxi){
                 maxi = roomCnt[i];
                 answer = i;
             }
         }
 
-        // todo 위 강사님 코드랑 비교에서 효율적인지 확인, 시간복잡도
-        /*int max = Arrays.stream(roomCnt).max().getAsInt();
+        /*int max = Arrays.stream(roomCnt).max().getAsInt(); O(2n)
         for (int i = 0; i < n; i++) {
             if (roomCnt[i] == max) {
                 answer = i;
