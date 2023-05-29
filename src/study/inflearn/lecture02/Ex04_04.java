@@ -11,13 +11,13 @@ public class Ex04_04 {
         int answer = 0;
 
         // 심사위원 점수 오름차순
-        Integer[] scoreArr = Arrays.stream(score).boxed().toArray(Integer[]::new);
-        Arrays.sort(scoreArr);
+        //Integer[] scoreArr = Arrays.stream(score).boxed().toArray(Integer[]::new);
+        Arrays.sort(score); // note 정수형 배열의 오름차순은 기본형 int는 된다.
 
-        for (int i = 0; i < scoreArr.length; i++) {
-            if (scoreArr[i+(k-1)] <=scoreArr[i] + 10) { // k개 골라 점수 차이 10이하인 요소 조건
+        for (int i = 0; i < score.length; i++) {
+            if (score[i+(k-1)] <=score[i] + 10) { // k개 골라 점수 차이 10이하인 요소 조건
                 for (int j = i; j < i+k; j++) {
-                    answer += scoreArr[j]; // 최종점수
+                    answer += score[j]; // 최종점수
                 }
                 answer = answer/k; // 평균점수
                 break;
