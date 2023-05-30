@@ -2,6 +2,9 @@ package study.inflearn.lecture02;
 
 import java.util.Arrays;
 
+/**
+ * 심사위원 - Sorting & Thinking
+ */
 public class Ex04_04_Answer {
     public int getAve(int[] score, int s, int e){
         int sum = 0;
