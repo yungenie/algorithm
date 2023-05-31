@@ -4,6 +4,7 @@ package study.inflearn.lecture02;
 /**
  * 멀티태스킹 - Sorting & Thinking
  * 소요시간 - 1시간 5분
+ * 강사님 피드백 - 타임아웃나는 로직임..^^
  */
 public class Ex04_06 {
     public int solution(int[] tasks, long k) {
