@@ -1,10 +1,38 @@
 package study.inflearn.lecture02;
 
+import java.util.Arrays;
+
+/**
+ * 멀티태스킹 - Sorting & Thinking
+ */
 public class Ex04_06_Answer {
     public int solution(int[] tasks, long k) {
         int answer = 0;
-        //System.arraycopy();
-        return answer;
+        int n = tasks.length;
+        int[] process = new int[n + 1];
+        System.arraycopy(tasks, 0, process, 1, n);
+        Arrays.sort(process);
+
+        int rotate = n;
+        for (int i = 1; i < process.length; i++) {
+            long time = (long)(process[i] - process[i-1]) * rotate; // 작업이 완료되는 시간
+            if (time <= k) {
+                k -= time; // 남은 시간
+                rotate--; // 남은 횟수
+            } else {
+                long idx = k % rotate; // 회전하고 남은 수 == 남은 작업번호 수
+                int cnt = 0;
+                for (int j = 0; j < n; j++) {
+                    if (process[i] <= tasks[j]) {
+                        if (cnt == idx) {
+                            return j + 1;
+                        }
+                        cnt++;
+                    }
+                }
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args){
