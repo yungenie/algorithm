@@ -13,14 +13,14 @@ public class Ex04_06_Answer {
         System.arraycopy(tasks, 0, process, 1, n);
         Arrays.sort(process);
 
-        int rotate = n;
+        int rotateCnt = n;
         for (int i = 1; i < process.length; i++) {
-            long time = (long)(process[i] - process[i-1]) * rotate; // 작업이 완료되는 시간
+            long time = (long)(process[i] - process[i-1]) * rotateCnt; // 작업이 완료되는 시간
             if (time <= k) {
                 k -= time; // 남은 시간
-                rotate--; // 남은 횟수
+                rotateCnt--; // 남은 횟수
             } else {
-                long idx = k % rotate; // 회전하고 남은 수 == 남은 작업번호 수
+                long idx = k % rotateCnt; // 회전하고 남은 수 == 남은 작업번호 수
                 int cnt = 0;
                 for (int j = 0; j < n; j++) {
                     if (process[i] <= tasks[j]) {
