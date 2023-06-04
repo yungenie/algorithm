@@ -1,8 +1,7 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section04;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
-import java.util.stream.Stream;
 
 /**
  * 이진수 정렬 - Sorting & Thinking
