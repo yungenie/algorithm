@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section04;
 
 import java.util.ArrayList;
 import java.util.Collections;
