@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section02;
 
 /**
  *  한 번만 사용한 최초 문자 - 해싱 & 시간파싱
