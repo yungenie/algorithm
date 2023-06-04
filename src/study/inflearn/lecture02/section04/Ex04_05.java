@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section04;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * 모임 장소 - Sorting & Thinking
  * 소요시간 - 50분
  */
-public class Ex04_05 { // todo Array, List 정렬 시간복잡도 비교,, 근데 어차피 로직자체의 시간복잡도가 n^3임..
+public class Ex04_05 {
     public int solution(int[][] board){
         int n = board.length;
 
