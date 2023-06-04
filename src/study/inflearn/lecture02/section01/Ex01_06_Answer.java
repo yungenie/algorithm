@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section01;
 
 /**
  * 과일 가져가기 - 시뮬레이션 & 구현
