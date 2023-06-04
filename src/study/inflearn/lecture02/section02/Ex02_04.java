@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section02;
 
 /**
  *  음수가 있는 부분수열 - 해싱,시간파싱
