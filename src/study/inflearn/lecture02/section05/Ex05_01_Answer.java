@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section05;
 
 import java.util.Arrays;
 

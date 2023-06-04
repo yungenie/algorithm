@@ -1,4 +1,4 @@
-package study.inflearn.lecture02;
+package study.inflearn.lecture02.section05;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +26,7 @@ public class Ex05_01 {
                 tmp.add(new int[]{arr[i], arr[j]});
                 answer++;
                 j--;
-                continue;
+                //continue;
             } else { // 무거운 승객 혼자 태우기
                 tmp.add(new int[]{arr[i]});
                 answer++;
