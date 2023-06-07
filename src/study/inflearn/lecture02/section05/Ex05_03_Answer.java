@@ -8,19 +8,23 @@ import java.util.Arrays;
 public class Ex05_03_Answer {
     public int solution(int n, int[] nums){
         int answer = 0;
+
+        // 스프링 쿨러 범위 (시작, 끝)
         System.out.println("nums = " + nums.length);
         //int[][] line = new int[nums.length + 1][2]; // todo N+1의미? new int[n+1] 아닌가?
         int[][] line = new int[n+1][2];
         for(int i = 0; i <= n; i++){
-            line[i][0] = Math.max(0, i - nums[i]); // 음수인 경우 
-            line[i][1] = Math.min(n, i + nums[i]); // n개를 넘는 경우
+            line[i][0] = Math.max(0, i - nums[i]); // 시작 값이 음수인 경우 0으로 셋팅
+            line[i][1] = Math.min(n, i + nums[i]); // 끝 값이 n개를 넘는 경우 n으로 셋팅
         }
         Arrays.sort(line, (a, b) -> a[0] - b[0]);
         System.out.println("Arrays.deepToString(l) = " + Arrays.deepToString(line));
+
+        // 스프링 쿨러 최소개수
         int start = 0, end = 0, i = 0;
         while(i < line.length){
             while(i < line.length && line[i][0] <= start){
-                end = Math.max(end, line[i][1]);
+                end = Math.max(end, line[i][1]); //스타트지점에서 범위가 오른쪽에서 가장 긴거 선택
                 i++;
             }
             answer++;
