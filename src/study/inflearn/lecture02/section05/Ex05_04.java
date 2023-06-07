@@ -13,18 +13,18 @@ public class Ex05_04 {
         int answer = 0;
         int n = growTime.length;
 
+        // 꽃 심기 및 성장 기간이 담긴 2차원 배열
         List<int[]> pg = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             pg.add(new int[]{plantTime[i], growTime[i]}); // todo Array 순차 데이터 추가 vs ArrayList 순차 데이터 추가
         }
-        Collections.sort(pg, (a,b) -> b[1] - a[1]); // note Collectinos.sort() 시간복잡도 평균/최악 O(nlogn)
+        Collections.sort(pg, (a,b) -> b[1] - a[1]); // 성장 기간이 가장 긴 꽃씨 내림차순 note Collectinos.sort() 시간복잡도 평균/최악 O(nlogn)
 
-        int size = pg.size();
         int start = 0, end = 0;
         for (int[] x : pg) {
-            start = start + x[0];
-            end = start + x[1];
-            answer = Math.max(end, answer);
+            start = start + x[0]; // 꽃 심기
+            end = start + x[1]; // 꽃이 피는 날 : 꽃 심기 + 성장
+            answer = Math.max(end, answer); // 가장 늦게 꽃이 피는 날
         }
 
         return answer;
