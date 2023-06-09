@@ -22,7 +22,7 @@ public class Ex05_05_Answer {
         }
         @Override
         public int compareTo(Info o) {
-            return this.power - o.power; // 공격력 기준으로 오름차순
+            return this.power - o.power;
         }
     }
     public int[] solution(String[] students){
@@ -36,7 +36,7 @@ public class Ex05_05_Answer {
             int y = Integer.parseInt(students[i].split(" ")[1]); // 공격력
             list.add(new Info(i, x, y)); // [반 번호, 팀, 공격력]
         }
-        Collections.sort(list);
+        Collections.sort(list); // 공격력 기준으로 오름차순
 
         // 학생마다 얻을 수 있는 최대 점수
         HashMap<Character, Integer> map = new HashMap<>(); // 팀에 따른 공격력 누적
