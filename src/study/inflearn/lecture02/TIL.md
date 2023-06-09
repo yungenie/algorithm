@@ -7,6 +7,76 @@
 - 제일 좋은 선택을 하기 위한 전략을 잘 생각해보기
 
 
+## Ex06_01
+
+## Ex05_06
+
+
+
+## Ex05_05
+### 문제 포인트
+- 학생마다 얻을 수 있는 최대점수
+- 각 학생들의 반 번호, 팀, 공격력을 가지고 전투게임을 합니다. 자기보다 공격력이 작은 학생을 사로잡을 수 있고 같은 팀은 공격할 수 없습니다. 각 학생마다 얻을 수 있는 최대 점수를 학생 번호 순으로 배열에 담아 반환하세요.
+- 시간복잡도 O(n)으로 풀기 위해서 공격력 기준으로 오름차순 후, 공격을 누적하고 팀별 공격력을 해싱하여 각 학생에 점수를 기록할 때 같은 팀이면 해싱된 공격력을 제외합니다.
+
+```java
+   class Info implements Comparable<Info> {
+      public int idx;
+      public Character temm;
+      public int power;
+   
+      Info(int idx, Character temm, int power) {
+         this.idx = idx;
+         this.temm = temm;
+         this.power = power;
+      }
+      @Override
+      public int compareTo(Info o) {
+         return this.power - o.power;
+      }
+   }
+   public int[] solution(String[] students){
+      int n = students.length;
+      int[] answer = new int[n];
+
+      // 전투게임 정보
+      ArrayList<Info> list = new ArrayList<>();
+      for (int i = 0; i < n; i++) {
+         Character x = students[i].split(" ")[0].charAt(0); // 팀
+         int y = Integer.parseInt(students[i].split(" ")[1]); // 공격력
+         list.add(new Info(i, x, y)); // [반 번호, 팀, 공격력]
+      }
+      Collections.sort(list); // 공격력 기준으로 오름차순
+
+      // 학생마다 얻을 수 있는 최대 점수
+      HashMap<Character, Integer> map = new HashMap<>(); // 팀에 따른 공격력 누적
+      int j = 0, total = 0;
+      for (int i = 1; i < n; i++) {
+            /*for (; j < n; j++) { // i 증감에 따라 j초기화 되는 게 아니고 i에 따라 j도 증감되므로 시간복잡도 O(n)
+                if (list.get(j).power < list.get(i).power) {
+                    total += list.get(j).power; // 공격 누적
+                    char c = list.get(j).temm; // 팀
+                    map.put(c, map.getOrDefault(c, 0) + list.get(j).power); // 팀 공격력 해싱
+                }
+                else break;
+            }*/
+
+         while (j < n) {
+            if (list.get(j).power < list.get(i).power) {
+               total += list.get(j).power; // 공격 누적
+               char c = list.get(j).temm; // 팀
+               map.put(c, map.getOrDefault(c, 0) + list.get(j).power); // 팀 공격력 해싱
+               j++;
+            } else break;
+         }
+         answer[list.get(i).idx] = total - map.getOrDefault(list.get(i).temm, 0); // 최대점수 (같은 팀 공격력 제외)
+      }
+      return answer;
+   }
+```
+- `for (int i = 1; i < n; i++)` 초기값이 1부터 시작하는 이유는 공격력을 오름차순 정렬을 했기 때문에 0번째 학생은 사로잡을 수 있는 학생이 없습니다.
+- `answer[list.get(i).idx]` list에 담긴 1번 학생부터 사로잡을 학생이 있으므로, 1번부터 얻을 수 있는 점수를 기록합니다.
+
 ## Ex05_04
 ### 문제 포인트
 - 모든 꽃이 피기까지 최단시간

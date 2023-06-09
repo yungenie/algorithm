@@ -42,14 +42,24 @@ public class Ex05_05_Answer {
         HashMap<Character, Integer> map = new HashMap<>(); // 팀에 따른 공격력 누적
         int j = 0, total = 0;
         for (int i = 1; i < n; i++) {
-            for (; j < n; j++) { // i 증감에 따라 j초기화 되는 게 아니고 i에 따라 j도 증감되므로 시간복잡도 O(n)
+            /*for (; j < n; j++) { // i 증감에 따라 j초기화 되는 게 아니고 i에 따라 j도 증감되므로 시간복잡도 O(n)
                 if (list.get(j).power < list.get(i).power) {
                     total += list.get(j).power; // 공격 누적
                     char c = list.get(j).temm; // 팀
                     map.put(c, map.getOrDefault(c, 0) + list.get(j).power); // 팀 공격력 해싱
                 }
                 else break;
+            }*/
+
+            while (j < n) {
+                if (list.get(j).power < list.get(i).power) {
+                    total += list.get(j).power; // 공격 누적
+                    char c = list.get(j).temm; // 팀
+                    map.put(c, map.getOrDefault(c, 0) + list.get(j).power); // 팀 공격력 해싱
+                    j++;
+                } else break;
             }
+
             answer[list.get(i).idx] = total - map.getOrDefault(list.get(i).temm, 0); // 최대점수 (같은 팀 공격력 제외)
         }
         return answer;
