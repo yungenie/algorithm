@@ -1,6 +1,7 @@
 package study.inflearn.lecture02.section05;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * 스프링 쿨러 - greedy
@@ -10,15 +11,13 @@ public class Ex05_03_Answer {
         int answer = 0;
 
         // 스프링 쿨러 범위 (시작, 끝)
-        System.out.println("nums = " + nums.length);
-        //int[][] line = new int[nums.length + 1][2]; // todo N+1의미? new int[n+1] 아닌가?
         int[][] line = new int[n+1][2];
         for(int i = 0; i <= n; i++){
             line[i][0] = Math.max(0, i - nums[i]); // 시작 값이 음수인 경우 0으로 셋팅
             line[i][1] = Math.min(n, i + nums[i]); // 끝 값이 n개를 넘는 경우 n으로 셋팅
         }
-        Arrays.sort(line, (a, b) -> a[0] - b[0]);
-        System.out.println("Arrays.deepToString(l) = " + Arrays.deepToString(line));
+        Arrays.sort(line, Comparator.comparingInt(a -> a[0])); //(a, b) -> a[0] - b[0]
+        //System.out.println("Arrays.deepToString(l) = " + Arrays.deepToString(line));
 
         // 스프링 쿨러 최소개수
         int start = 0, end = 0, i = 0;
