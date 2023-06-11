@@ -30,8 +30,11 @@ package study.inflearn.study;
  */
 public class RecursiveFunction {
     public void DFS(int n) {
+        // 탈출조건
         if (n == 0) return; // 값 반환의 의미도 있지만, 반환타입이 void 경우 함수 종료의 의미도 갖고 있다.
         else {
+            // 연산
+            // 재귀호출
             DFS(n-1); // 스택 프레임에 복귀주소(Code Line) 기록합니다.
             System.out.print(n);
         }
