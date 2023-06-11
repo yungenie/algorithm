@@ -13,16 +13,14 @@ public class Ex06_01_Answer {
     int[] ch;
     boolean flag;
     public void DFS(int L, int number){ // L:레벨, number: 각 자릿수를 합친 값
-        if (flag) return;
+        if (flag) return; // 탈출조건
         if (L == m) {
-            System.out.println("L == m");
                 if (number > target) {
                     answer = number;
                     flag = true;
                 }
-        } else {
+        } else { // 연산
             for (int i = 0; i < m; i++) {
-                System.out.println("i = " + i);
                 if(ch[i] == 0) {
                     ch[i] = 1;
                     DFS(L + 1, number * 10 + nums.get(i));
