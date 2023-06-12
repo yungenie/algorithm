@@ -5,6 +5,7 @@ import java.util.Collections;
 
 /**
  * 가장 가까운 큰수 - 깊이우선탐색 : DFS
+ * 순열
  */
 public class Ex06_01_Answer {
 
@@ -54,10 +55,10 @@ public class Ex06_01_Answer {
 
     public static void main(String[] args){
         Ex06_01_Answer T = new Ex06_01_Answer();
-        //System.out.println(T.solution(123));
-        //System.out.println(T.solution(321));
+        System.out.println(T.solution(123));
+        System.out.println(T.solution(321));
         System.out.println(T.solution(20573));
-        //System.out.println(T.solution(27711));
-        //System.out.println(T.solution(54312));
+        System.out.println(T.solution(27711));
+        System.out.println(T.solution(54312));
     }
 }
