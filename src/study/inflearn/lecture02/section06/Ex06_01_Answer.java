@@ -13,7 +13,7 @@ public class Ex06_01_Answer {
     ArrayList<Integer> nums;
     int[] ch;
     boolean flag;
-    public void DFS(int L, int number){ // L:레벨, number: 각 자릿수를 합친 값
+    public void DFS(int L, int number){ // L:레벨, number: 각 자릿수를 합친 값.
         if (flag) return; // 탈출조건
         if (L == m) {
                 if (number > target) {
