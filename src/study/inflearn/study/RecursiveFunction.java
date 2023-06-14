@@ -31,7 +31,7 @@ package study.inflearn.study;
 public class RecursiveFunction {
     public void DFS(int n) {
         // 탈출조건
-        if (n == 0) return; // 값 반환의 의미도 있지만, 반환타입이 void 경우 함수 종료의 의미도 갖고 있다.
+        if (n == 0) return; // 값 반환의 의미도 있지만, 반환타입이 void 경우 함수 종료의 의미도 갖고 있다. 모든 재귀함수 종료는 아니고, 해당 재귀함수만 종료
         else {
             // 연산
             // 재귀호출
