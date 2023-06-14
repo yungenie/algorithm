@@ -13,20 +13,22 @@ public class Ex06_04_02 {
     HashMap<Character, Integer> map; // 문자 빈도수 해싱
     Deque<Character> temp; // 팰린드롬
     public void DFS() {
+        System.out.println("temp = " + temp);
+        
         if (temp.size() == n) {
             String palindrome = "";
-            for (Character s1 : temp) {palindrome += s1;}
+            for (char c : temp) {palindrome += c;}
             list.add(palindrome);
         } else {
-            for (Character c : map.keySet()) {
-                if (map.get(c) == 0) continue;
-                temp.addFirst(c);
-                temp.addLast(c);
-                map.put(c, map.get(c) - 2);
+            for (char key : map.keySet()) {
+                if (map.get(key) == 0) continue;
+                temp.addFirst(key);
+                temp.addLast(key);
+                map.put(key, map.get(key) - 2);
                 DFS();
                 temp.pollFirst();
                 temp.pollLast();
-                map.put(c, map.get(c) + 2);
+                map.put(key, map.get(key) + 2);
             }
         }
     }
@@ -38,13 +40,13 @@ public class Ex06_04_02 {
         n = s.length();
 
         // 문자 빈도수 해싱
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) { // note s.toCharArray()로 향상된 반복문 사용해도 됨
             map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
         }
 
         // 문자 빈도수 홀수 2개 이상 제외
         int count = 0;
-        for (Character key : map.keySet()) {
+        for (char key : map.keySet()) {
             if (map.get(key) % 2 == 1) {
                 count++;
             }
@@ -52,7 +54,7 @@ public class Ex06_04_02 {
         if (count > 1) return new String[]{};
 
         // 빈도수가 홀수인 문자 1개인 경우 - 중간에 넣기
-        for (Character key : map.keySet()) {
+        for (char key : map.keySet()) {
             if (map.get(key) % 2 == 1) {
                 temp.push(key);
                 map.put(key, map.get(key) - 1);
