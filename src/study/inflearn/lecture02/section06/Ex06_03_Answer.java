@@ -2,7 +2,11 @@ package study.inflearn.lecture02.section06;
 
 import java.util.ArrayList;
 
-public class Ex06_Answer {
+/**
+ * 바둑대회 - 깊이우선탐색 : DFS
+ * 조합문제
+ */
+public class Ex06_03_Answer {
     int n, answer;
     int[] ch;
     public void DFS(int L, int s, int[][] cans){
@@ -37,7 +41,7 @@ public class Ex06_Answer {
     }
 
     public static void main(String[] args){
-        Ex06_Answer T = new Ex06_Answer();
+        Ex06_03_Answer T = new Ex06_03_Answer();
         System.out.println(T.solution(new int[][]{{87, 84}, {66, 78}, {94, 94}, {93, 87}, {72, 92}, {78, 63}}));
         System.out.println(T.solution(new int[][]{{10, 20}, {15, 25}, {35, 23}, {55, 20}}));
         System.out.println(T.solution(new int[][]{{11, 27}, {16, 21}, {35, 21}, {52, 21}, {25, 33},{25, 32}, {37, 59}, {33, 47}}));
