@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * - 저장공간은 배열을 사용하며, 각 요소를 힙(heap) 자료구조의 형태로 저장한다. (힙은 완전이진트리로 가장 큰 값/작은 값을 빠르게 찾을 수 있는 특징)
  * - 숫자뿐만 아니라 객체를 저장할 때는 각 객체의 크기를 비교할 수 있는 방법을 제공해야 합니다.
  */
-public class PrioityQueueTest {
+public class PrioityQueue_Exam01 {
     public static void main(String[] args) {
 
         // 우선순위가 높은 순으로 정렬
