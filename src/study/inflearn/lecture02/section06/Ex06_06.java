@@ -17,10 +17,6 @@ public class Ex06_06 {
         }
 
         if(str.length() == s.length() && L == s.length()){
-            //System.out.println("====================");
-            //System.out.println("* L = " + L);
-            //System.out.println("* tmp = " + tmp);
-            //System.out.println("====================");
             answer++;
         }
         else{
@@ -29,9 +25,6 @@ public class Ex06_06 {
                 String num = s.substring(L, i + 1);
                 if(Integer.parseInt(num) > 25) return;
                 tmp.add(num);
-                //System.out.println("L = " + L);
-                //System.out.println("i = " + i);
-                //System.out.println("tmp = " + tmp);
                 DFS(i + 1, s);
                 tmp.pollLast();
                 
@@ -49,10 +42,10 @@ public class Ex06_06 {
     public static void main(String[] args){
         Ex06_06 T = new Ex06_06();
         System.out.println(T.solution("25114"));
-        //System.out.println(T.solution("23251232"));
-        //System.out.println(T.solution("21020132"));
-        //System.out.println(T.solution("21350"));
-        //System.out.println(T.solution("120225"));
-        //System.out.println(T.solution("232012521"));
+        System.out.println(T.solution("23251232"));
+        System.out.println(T.solution("21020132"));
+        System.out.println(T.solution("21350"));
+        System.out.println(T.solution("120225"));
+        System.out.println(T.solution("232012521"));
     }
 }

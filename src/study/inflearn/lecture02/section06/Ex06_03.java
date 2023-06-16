@@ -12,13 +12,6 @@ public class Ex06_03 { // todo 영근이한테 메모리 할당 및 적재 배�
     int[][] cans;
 
     public void DFS(int L, int s){
-        System.out.println("answer = " + System.identityHashCode(answer));
-        System.out.println("m = " + System.identityHashCode(m));
-        System.out.println("n = " + System.identityHashCode(n));
-        System.out.println("ch = " + System.identityHashCode(ch));
-        System.out.println("aArr = " + System.identityHashCode(aArr));
-        System.out.println("bArr = " + System.identityHashCode(bArr));
-        System.out.println("cans = " + System.identityHashCode(cans));
         if (L == m) {
             // 흰돌, 검은돌 선수 인덱스 셋팅
             int aIdx = 0, bIdx = 0;
@@ -33,7 +26,7 @@ public class Ex06_03 { // todo 영근이한테 메모리 할당 및 적재 배�
             }
 
             // 흰돌팀과 검은돌팀의 능력차의 최소값
-            int sumA = 0, sumB = 0; // todo 전역변수에 선언했었음. 레벨 L이 n/2일 때마다 흰돌팀,검은돌팀이 다른 경우의 수 이므로 초기화 해줘야함.
+            int sumA = 0, sumB = 0; // 전역변수에 선언했었음. 레벨 L이 n/2일 때마다 흰돌팀,검은돌팀이 다른 경우의 수 이므로 초기화 해줘야함.
             for (int y = 0; y < aArr.length; y++) {
                 sumA += cans[aArr[y]][0];
                 sumB += cans[bArr[y]][1];
@@ -41,24 +34,24 @@ public class Ex06_03 { // todo 영근이한테 메모리 할당 및 적재 배�
             answer = Math.min(answer, Math.abs(sumA - sumB));
 
         } else {
-            for (int i = s; i < n; i++) { // todo i=s 인 이유? 다음 선수를 뽑기 위해서
-                // todo if ch[i] == 0인 조건이 빠지는 건지? 어차피 i=s로 했기 때문에 다음 선수를 뽑는다.
-                ch[i] = 1;
-                DFS(L + 1, i+1);
-                ch[i] = 0;
+            for (int i = s; i < n; i++) { // i의 초기값이 s 이유는 i는 자식레벨 s는 부모레벨
+                if (ch[i] == 0) { // todo 강사님 코드에는 해당 조건문 제외되어 있음
+                    ch[i] = 1;
+                    DFS(L + 1, i + 1);
+                    ch[i] = 0;
+                }
             }
         }
     }
 
-    public int solution(int[][] cans){ // todo 입력데이터 예제에 영향 없이 고정된 값이면 전역변수로 데이터마다 변하는 값이면 지역변수에 초기화 해줘야함.
-        answer = Integer.MAX_VALUE; // todo 멤버변수로 초기화해둬서 answer 값을 공유했다.. 지역변수로 수정함.
+    public int solution(int[][] cans){ // 입력데이터 예제에 영향 없이 고정된 값이면 전역변수로 데이터마다 변하는 값이면 지역변수에 초기화 해줘야함.
+        answer = Integer.MAX_VALUE; // 멤버변수로 초기화해둬서 answer 값을 공유했다.. 지역변수로 수정함.
         this.cans = cans;
         n = cans.length;
         ch = new int[n]; // 팀번호 참가 체크
         m = n/2;
         aArr = new int[m]; // 흰돌선수 인덱스 번호 // todo 배열을 항상 초기화 해주는 게 나을 지.. 덮어쓰일지..
         bArr = new int[m]; // 검은돌선수 인덱스 번호 // todo 배열을 항상 초기화 해주는 게 나을 지.. 덮어쓰일지..
-        System.out.println("Arrays.deepToString(cans) = " + Arrays.deepToString(cans));
         DFS(0, 0);
 
         return answer;

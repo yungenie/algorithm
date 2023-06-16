@@ -31,7 +31,6 @@ public class Ex06_04 {
 
         } else {
             for (int i = 0; i < n; i++) {
-
                 if (ch[i] == 0) {
                     ch[i] = 1;
                     stack.push(str[i]);
@@ -54,7 +53,6 @@ public class Ex06_04 {
         for (int a = 0; a < n; a++) {
             str[a] = String.valueOf(s.charAt(a));
         }
-
 
         DFS(0);
         System.out.println("palindrome = " + palindrome);
