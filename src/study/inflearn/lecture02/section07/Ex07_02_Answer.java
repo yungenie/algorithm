@@ -24,7 +24,6 @@ public class Ex07_02_Answer {
         int L = 0;
         while(!Q.isEmpty()){
             int len = Q.size();
-
             // 레벨 탐색
             for(int i = 0; i < len; i++){
                 int[] cur = Q.poll();

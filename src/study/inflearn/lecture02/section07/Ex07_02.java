@@ -31,7 +31,7 @@ public class Ex07_02 {
                     int nx = x + jump[j];
 
                     // 뒤로 점프 수직선 벗어나면 건너뛰기
-                    if (nx < 0) continue; // todo 음수면 무조건 건너뛰기
+                    if (nx < 0) continue; // 음수면 무조건 건너뛰기
 
                     // 집으로 도착
                     if (nx == home) return L + 1;
