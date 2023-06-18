@@ -27,7 +27,7 @@
 - 강사님
   ![img.png](img/ex06_06.png)
 - 나
-  ![img.png](img/ex06_Answer.png)
+  ![img.png](img/ex06_06_Answer.png)
 
 ### 정리 
 - 조합의 경우의 수 모두 구하고 Back Tracking 하면서 해당 레벨의 합산 return
@@ -79,6 +79,7 @@
 
 ### 동작원리
 ![img.png](img/ex06_03_Answer.png)
+
 ![img.png](img/ex06_03_Answer02.png)
 
 ## Ex06_02
