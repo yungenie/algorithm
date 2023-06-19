@@ -2,6 +2,9 @@ package study.inflearn.lecture02.section06;
 
 import java.util.*;
 
+/**
+ * 팰린드롬의 경우수 - 깊이우선탐색 : DFS
+ */
 public class Ex06_04_Answer {
     Deque<Character> tmp;
     ArrayList<String> res;
