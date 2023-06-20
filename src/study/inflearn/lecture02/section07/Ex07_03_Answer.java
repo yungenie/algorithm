@@ -3,6 +3,9 @@ package study.inflearn.lecture02.section07;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 송아지를 잡자 - 넓이우선탐색 : BFS
+ */
 public class Ex07_03_Answer {
     public int solution(int s, int e){
         int[][] ch = new int[2][200001];
