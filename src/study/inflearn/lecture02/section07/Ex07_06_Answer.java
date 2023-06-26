@@ -5,7 +5,6 @@ import java.util.Queue;
 
 /**
  * 숲속의 기사 - 넓이우선탐색 : BFS
- * // todo 정답이랑 동일한데 답이 다르게 나옴. 소스가 이상함.
  */
 public class Ex07_06_Answer {
     public int solution(int[][] board){
@@ -38,18 +37,9 @@ public class Ex07_06_Answer {
                                     if(ch[nx][ny] == 0){
                                         ch[nx][ny] = 1;
                                         dist[nx][ny] += L;
-                                        Q.offer(new int[]{ny, ny});
-                                    }
-                                }
-
-                                /*if (nx >= 0 && nx < n && ny >=0 && ny < m && board[nx][ny] != 1) {
-                                    if (ch[nx][ny] == 0) {
-                                        ch[nx][ny] = 1;
-                                        dist[nx][ny] += L;
                                         Q.offer(new int[]{nx, ny});
                                     }
-                                }*/
-
+                                }
                             }
                         }
                     }

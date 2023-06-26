@@ -24,7 +24,7 @@ public class Ex07_06 {
                 if (board[i][j] == 2 || board[i][j] == 3) { // 영희/기사 => 영희로 보기
                     ch = new int[xLen][yLen]; // 영희/기사 각각 방문지점 초기화
                     Q.offer(new int[]{i, j});
-                    ch[i][j] = 1; // error 방문지점 체크 안했는데 정답나옴.
+                    ch[i][j] = 1; // 방문지점 체크 안했는데 정답나옴.
                     int L = 0;
                     while(!Q.isEmpty()){
                         L++;
