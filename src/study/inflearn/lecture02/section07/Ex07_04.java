@@ -10,11 +10,8 @@ import java.util.Queue;
 public class Ex07_04 {
     public int solution(int[][] board){
         int n = board.length;
-        //int[][] ch = new int[n][2];
         Queue<int[]> Q = new LinkedList<>();
         Q.offer(new int[]{0, 0});
-        //ch[0][0] = 1;
-        //ch[0][1] = 1;
         int L = 0;
 
         // BFS 탐색
@@ -29,14 +26,11 @@ public class Ex07_04 {
                     int ny = x[1] + dxy[1];
 
                     if (nx < 0 || ny < 0 || nx >= n || ny >= n || board[nx][ny] == 1) continue;
-                    //if (ch[nx][0] == 0 && ch[ny][1] == 0) continue;
 
                     if (nx == 6 && ny == 6) return L+1;
 
                     Q.offer(new int[]{nx, ny});
                     board[nx][ny] = 1;
-                   //ch[nx][0] = 1;
-                   //ch[ny][0] = 1;
                 }
             }
             L++;
