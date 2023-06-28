@@ -11,12 +11,14 @@ public class Ex07_02_Answer {
 
         // 방문한 위치 체크 초기화
         int[][] ch = new int[2][10001]; // 행인덱스: 앞/뒤점프, 열인덱스: 점프 위치
-        for (int x : pool) { // 웅덩이 지점 못가게 체크
+        // 웅덩이 지점 못가게 체크
+        for (int x : pool) {
             ch[0][x] = 1; // 0행:앞으로 점프
             ch[1][x] = 1; // 1행:뒤로 점프
         }
 
         Queue<int[]> Q = new LinkedList<>();
+        // 현수 위치 체크
         ch[0][0] = 1;
         ch[1][0] = 1;
         Q.offer(new int[]{0, 0}); // {점프한 위치, 점프 앞(0)/뒤(1) 플러그}
@@ -27,18 +29,21 @@ public class Ex07_02_Answer {
             // 레벨 탐색
             for(int i = 0; i < len; i++){
                 int[] cur = Q.poll();
+
                 if(cur[0] == home) return L; // 집도착
 
                 // 앞으로 점프
                 int nx = cur[0] + a;
-                if (nx <=10001 && ch[0][nx] == 0) {
+                if (nx <=10001 && ch[0][nx] == 0) { // ch[0][nx] == 0 앞으로 점프해서 방문한 첫 위치
                     ch[0][nx] = 1;
                     Q.offer(new int[]{nx, 0});
                 }
 
                 // 뒤로 점프
                 nx = cur[0] - b;
-                if (nx >= 0 && ch[1][nx] == 0 && cur[1] == 0) { // cur[1] == 0 앞으로 가는 지점일 경우
+                if (nx >= 0 && ch[1][nx] == 0 && cur[1] == 0) {
+                    // ch[1][nx] == 0 뒤로 점프해서 방문한 첫 위치
+                    // cur[1] == 0 두번 뒤로 점프 불가이므로, 부모레벨에서 앞으로 점프한 지점만 뒤로 점프 가능.
                     ch[1][nx] = 1;
                     Q.offer(new int[]{nx, 1});
                 }

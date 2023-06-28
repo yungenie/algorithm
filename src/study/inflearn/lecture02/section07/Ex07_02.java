@@ -46,7 +46,7 @@ public class Ex07_02 {
                     if (flag) continue;
 
                     // 한번 방문한 점프위치 체크
-                    if (ch[nx] == 0) { // todo 뒤로는 못가는 상황.. 근데 어찌 답이 나옴?
+                    if (ch[nx] == 0) { // 뒤로 두번 가는 경우의 수 체크 안했는데 답이 나옴.
                         ch[nx] = 1;
                         q.offer(nx);
                     }
