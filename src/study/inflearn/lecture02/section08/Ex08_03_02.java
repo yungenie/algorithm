@@ -29,8 +29,8 @@ public class Ex08_03_02 {
             int len = PQ.size();
             for (int i = 0; i < len; i++) {
                 int[] cur = PQ.poll();
-                System.out.println("Arrays.toString(cur) = " + Arrays.toString(cur));
-                if (cost[cur[0]][cur[1]] < cur[2]) continue; // error todo 큐에서 나온 최소비용이 큐에서 나온 지점의 최소비용보다 크면 뻗을 필요가 없다.
+                //System.out.println("Arrays.toString(cur) = " + Arrays.toString(cur));
+                if (cost[cur[0]][cur[1]] < cur[2]) continue; // error 큐에서 나온 최소비용이 해당 지점의 최소비용보다 크면 자식 레벨까지 뻗을 필요가 없다.
                 if (cur[0] == (n-1) && cur[1] == (m-1)) return cost[cur[0]][cur[1]];
 
                 // 자식레벨 탐색
@@ -39,7 +39,7 @@ public class Ex08_03_02 {
                     int ny = cur[1] + dy[j];
 
                     if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
-                    //if (cost[nx][ny] < cur[2]) continue; // error 자식레벨에서 할 필요 없음. 부모에서 꺼내자마자 확인하면 된다.
+                    //if (cost[nx][ny] < cur[2]) continue; // error
 
                     if (board[nx][ny] == 1 && cost[nx][ny] > cur[2] + 1) {
                         cost[nx][ny] = cur[2] + 1;
@@ -49,17 +49,14 @@ public class Ex08_03_02 {
                         PQ.offer(new int[]{nx, ny, cur[2]});
                     }
 
-
-
                    //PQ.offer(new int[]{nx, ny, cost[nx][ny]}); // error OOME
                 }
-                for (int[] ints : PQ) {
+                /*for (int[] ints : PQ) {
                     System.out.print("PQ = " + Arrays.toString(ints));
                 }
-                System.out.println();
+                System.out.println();*/
             }
         }
-
         return answer;
         //return cost[n - 1][m - 1];
     }
@@ -67,9 +64,9 @@ public class Ex08_03_02 {
     public static void main(String[] args){
         Ex08_03_02 T = new Ex08_03_02();
         System.out.println(T.solution(new int[][]{{0, 1, 1, 0}, {1, 0, 0, 1}, {0, 1, 0, 0}}));
-        //System.out.println(T.solution(new int[][]{{0, 1, 1, 0},{1, 1, 0, 1},{0, 0, 1, 0}, {0, 1, 1, 1}, {0, 1, 1, 0}}));
-        //System.out.println(T.solution(new int[][]{{0, 1, 1, 0, 1, 1},{0, 1, 1, 1, 1, 1},{1, 0, 0, 0, 1, 1}, {1, 1, 0, 1, 1, 1}, {1, 1, 0, 1, 1, 0}, {1, 0, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 0}}));
-        //System.out.println(T.solution(new int[][]{{0, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 0, 0, 0, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}}));
-        //System.out.println(T.solution(new int[][]{{0, 0, 1, 0, 1, 1, 1},{1, 1, 0, 0, 1, 1, 1},{1, 1, 0, 1, 0, 1, 1}, {0, 0, 1, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 1}, {1, 1, 0, 1, 1, 1, 0}}));
+        System.out.println(T.solution(new int[][]{{0, 1, 1, 0},{1, 1, 0, 1},{0, 0, 1, 0}, {0, 1, 1, 1}, {0, 1, 1, 0}}));
+        System.out.println(T.solution(new int[][]{{0, 1, 1, 0, 1, 1},{0, 1, 1, 1, 1, 1},{1, 0, 0, 0, 1, 1}, {1, 1, 0, 1, 1, 1}, {1, 1, 0, 1, 1, 0}, {1, 0, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 0}}));
+        System.out.println(T.solution(new int[][]{{0, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 0, 0, 0, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}}));
+        System.out.println(T.solution(new int[][]{{0, 0, 1, 0, 1, 1, 1},{1, 1, 0, 0, 1, 1, 1},{1, 1, 0, 1, 0, 1, 1}, {0, 0, 1, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 1}, {1, 1, 0, 1, 1, 1, 0}}));
     }
 }
