@@ -15,7 +15,9 @@ public class Ex08_02_02 {
         // 지하철 역번호 - 호선 해싱
         Map<Integer, HashSet<Integer>> stMap = new HashMap<>(); // st : station
         for (int i = 0; i < n; i++) {
-            /*for (int j = 0; j < routes[i].length; j++) {
+            // note 향샹된 반복문과 map.putIfAbsend() 메서드로 리팩토리
+            /*
+            for (int j = 0; j < routes[i].length; j++) {
                 HashSet<Integer> line = stMap.getOrDefault(routes[i][j], new HashSet<>());
                 line.add(i);
                 stMap.put(routes[i][j], line);
@@ -29,15 +31,17 @@ public class Ex08_02_02 {
         // 레벨탐색
         Queue<Integer> Q = new LinkedList<>();
         Q.offer(s);
-        //ch[0] = 1; // error
+        //ch[0] = 1; // error 아직 지하철 호선 안탐
         int L = 0;
         while (!Q.isEmpty()){
             int Qlen = Q.size();
             for (int i = 0; i < Qlen; i++) {
                 int cur = Q.poll();
+                if (cur == e) return L - 1;
 
-                //if (cur == e) return L - 1; // error
-                /*HashSet<Integer> curLines = stMap.get(cur);
+                // note 로직 리팩토리
+                /*
+                HashSet<Integer> curLines = stMap.get(cur);
                 for (Integer curLine : curLines) {
                     if (ch[curLine] == 1) continue;
                     else {
@@ -60,7 +64,7 @@ public class Ex08_02_02 {
 
                         // 자식레벨 탐색
                         for (int x : routes[line]) {
-                            if (x == e) return L;
+                            //if (x == e) return L;
                             Q.offer(x);
                         }
                     }
