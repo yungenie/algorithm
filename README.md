@@ -26,7 +26,7 @@
 
 # 문제 풀이(예시)
 
-| 번호 | 섹션 | 문제 | 풀이 코드 | 기타 |
+| 번호 | 섹션 | 문제 | 코드 구현 | 기타 |
 |:---:| ------------------- | ------------------- | ---- | --- |
 |1| 1. 시뮬레이션 & 구현 | 7. 비밀번호 | [Ex01_01_Answer.java](src/study/inflearn/lecture02/section01/Ex01_07.java)|[Ex01_01_Answer.md 풀이법](src/study/inflearn/lecture02/section01/Ex01_07.md)|
 |2| 5. greedy(탐욕법) | 4. 꽃이 피는 최단시간 | [Ex05_04.java](src/study/inflearn/lecture02/section05/Ex05_04.java)|[Ex01_01_Answer.md 정렬 시간복잡도 테스트](src/study/inflearn/lecture02/section05/Ex05_04_timeCheck.java)|
