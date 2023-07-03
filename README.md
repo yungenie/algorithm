@@ -26,9 +26,10 @@
 
 # 문제 풀이
 
-| 섹션 | 제목 | 풀이 코드 | 기타|
-| --- | --- | ---- | --- |
-| 1. 시뮬레이션 & 구현 | 1. 사다리타기| [Ex01_01_Answer.java]()||
+| 번호 | 섹션 | 제목 | 풀이 코드 | 기타 |
+|:---:| --- | --- | ---- | --- |
+|1| 1. 시뮬레이션 & 구현 | 1. 사다리타기| [Ex01_01_Answer.java](src/study/inflearn/lecture02/section01/Ex01_01_Answer.java)|[Ex01_01_Answer.md](src/study/inflearn/lecture02/section01/Ex01_01_Answer.md)|
+|-| 5. greedy(탐욕법) | 4. 꽃이 피는 최단시간| [Ex05_04.java](src/study/inflearn/lecture02/section05/Ex05_04.java)|[Ex01_01_Answer.md](src/study/inflearn/lecture02/section05/Ex05_04_timeCheck)|
 
 
 
