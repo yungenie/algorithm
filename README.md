@@ -30,7 +30,7 @@
 |:---:| --- | --- | ---- | --- |
 |1| 1. 시뮬레이션 & 구현 | 1. 사다리타기| [Ex01_01_Answer.java](src/study/inflearn/lecture02/section01/Ex01_01_Answer.java)|[Ex01_01_Answer.md](src/study/inflearn/lecture02/section01/Ex01_01_Answer.md)|
 |-| 5. greedy(탐욕법) | 4. 꽃이 피는 최단시간| [Ex05_04.java](src/study/inflearn/lecture02/section05/Ex05_04.java)|[Ex01_01_Answer.md](src/study/inflearn/lecture02/section05/Ex05_04_timeCheck)|
-|-| 8.  | | [Ex05_04.java](src/study/inflearn/lecture02/section08/Ex08_06.java)|[Ex08_06](https://github.com/yungenie/algorithm/blob/main/src/study/inflearn/lecture02/TIL.md#ex08_06_)|
+|-| 8.  | | [Ex05_04.java](src/study/inflearn/lecture02/section08/Ex08_06.java)|[Ex08_06](src/study/inflearn/lecture02/img/ex08_06_Answer.png)|
 
 
 
