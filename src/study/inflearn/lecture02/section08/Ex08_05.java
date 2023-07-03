@@ -36,11 +36,9 @@ public class Ex08_05 {
                 int ny = cur[1];
                 int cnt = cur[2]; // 이동거리
 
-                boolean flag = true;
-                while (flag) {
+                while (true) {
                     // 겪자밖 또는 벽을 만날 경우
                     if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
-                        flag = false;
                         nx -= dx[k];
                         ny -= dy[k];
                         cnt--;
@@ -48,7 +46,6 @@ public class Ex08_05 {
                     }
 
                     if (board[nx][ny] == 1) {
-                        flag = false;
                         nx -= dx[k];
                         ny -= dy[k];
                         cnt--;
