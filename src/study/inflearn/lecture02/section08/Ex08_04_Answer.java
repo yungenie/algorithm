@@ -1,6 +1,7 @@
 package study.inflearn.lecture02.section08;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -15,7 +16,7 @@ public class Ex08_04_Answer {
         int[][] cost = new int[n][m];
         for(int i = 0; i < n; i++) Arrays.fill(cost[i], Integer.MAX_VALUE);
         cost[0][0] = 0;
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[2] - b[2]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[2]));
         pq.add(new int[]{0, 0, 0});
         while(!pq.isEmpty()) {
             int[] cur = pq.poll();
