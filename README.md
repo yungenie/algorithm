@@ -28,10 +28,10 @@
 
 | 번호 | 섹션 | 문제 | 풀이 코드 | 기타 |
 |:---:| ------------------- | ------------------- | ---- | --- |
-|1| 1. 시뮬레이션 & 구현 | 7. 비밀번호 | [Ex01_01_Answer.java](src/study/inflearn/lecture02/section01/Ex01_07.java)|[Ex01_01_Answer.md](src/study/inflearn/lecture02/section01/Ex01_07.md)|
-|2| 5. greedy(탐욕법) | 4. 꽃이 피는 최단시간 | [Ex05_04.java](src/study/inflearn/lecture02/section05/Ex05_04.java)|[Ex01_01_Answer.md](src/study/inflearn/lecture02/section05/Ex05_04_timeCheck.java)|
+|1| 1. 시뮬레이션 & 구현 | 7. 비밀번호 | [Ex01_01_Answer.java](src/study/inflearn/lecture02/section01/Ex01_07.java)|[풀이법 Ex01_01_Answer.md](src/study/inflearn/lecture02/section01/Ex01_07.md)|
+|2| 5. greedy(탐욕법) | 4. 꽃이 피는 최단시간 | [Ex05_04.java](src/study/inflearn/lecture02/section05/Ex05_04.java)|[정렬비교 Ex01_01_Answer.md](src/study/inflearn/lecture02/section05/Ex05_04_timeCheck.java)|
 |3| 7. 넓이우선탐색(BFS)  | 6. 숲속의 기사 | [Ex07_06.java](src/study/inflearn/lecture02/section07/Ex07_06.java)|[TIL.md](src/study/inflearn/lecture02/TIL.md)|
-|4| 8. 그래프 최단거리 | 6. 교육 과정 | [Ex08_06_03.java](src/study/inflearn/lecture02/section08/Ex08_06_03.java)|[Ex08_06](src/study/inflearn/lecture02/img/ex08_06_Answer.png)|
+|4| 8. 그래프 최단거리 | 6. 교육 과정 | [Ex08_06_03.java](src/study/inflearn/lecture02/section08/Ex08_06_03.java)|[Ex08_06.md](src/study/inflearn/lecture02/img/ex08_06_Answer.png)|
 
 
 
