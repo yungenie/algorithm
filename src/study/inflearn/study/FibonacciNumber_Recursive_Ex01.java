@@ -2,6 +2,7 @@ package study.inflearn.study;
 
 /**
  * 피보나치 수 - 재귀
+ * 피보나치 수열 : 앞 2개의 수를 합하여 다음 숫자가 되는 수열입니다.
  * 피보나치 : 일련의 숫자로 다음 숫자를 찾기 위해 앞의 두 숫자의 합계를 사용하여 구성됩니다.
  */
 public class FibonacciNumber_Recursive_Ex01 {
