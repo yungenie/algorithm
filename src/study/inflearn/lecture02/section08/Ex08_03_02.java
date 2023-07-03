@@ -43,13 +43,11 @@ public class Ex08_03_02 {
 
                     if (board[nx][ny] == 1 && cost[nx][ny] > cur[2] + 1) {
                         cost[nx][ny] = cur[2] + 1;
-                        PQ.offer(new int[]{nx, ny, cur[2] + 1});
+                        PQ.offer(new int[]{nx, ny, cost[nx][ny]});
                     } else if (board[nx][ny] == 0 && cost[nx][ny] > cur[2]){
                         cost[nx][ny] = cur[2];
-                        PQ.offer(new int[]{nx, ny, cur[2]});
+                        PQ.offer(new int[]{nx, ny, cost[nx][ny]});
                     }
-
-                   //PQ.offer(new int[]{nx, ny, cost[nx][ny]}); // error OOME
                 }
                 /*for (int[] ints : PQ) {
                     System.out.print("PQ = " + Arrays.toString(ints));
