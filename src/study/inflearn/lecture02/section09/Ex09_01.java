@@ -12,11 +12,10 @@ public class Ex09_01 {
         int m = (int) Math.round(money * 100);
         int[] dp = new int[m+1];
 
-        // DP탐색
         for (String s : calInfo) {
             int cal = Integer.parseInt(s.split(" ")[0]); // 사탕 칼로리
             int price = (int) Math.round(Double.parseDouble(s.split(" ")[1])* 100); // 사탕 가격
-
+            // DP탐색
             for (int i = price; i < dp.length; i++) {
                 dp[i] = Math.max(dp[i], dp[i-price] + cal);
             }

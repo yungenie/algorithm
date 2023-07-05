@@ -14,11 +14,12 @@ public class Ex09_01_Answer {
             if (n == 0 && m == 0) {
                 break;
             }
-            // DP탐색
+
             int[] dy = new int[m + 1];
             for (int i = 0; i < n; i++) {
                 int c = sc.nextInt(); // 사탕 칼로리
                 int p = (int) Math.round(sc.nextDouble() * 100); // 사탕 가격
+                // DP탐색
                 for (int j = p; j <= m; j++) {
                     dy[j] = Math.max(dy[j], dy[j - p] + c);
                 }
