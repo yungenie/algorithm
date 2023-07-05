@@ -25,8 +25,9 @@ public class Ex10_05 {
         int[] dp = new int[m+1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         //dp[0] = 0; // note MAX_VALUE로 초기화 되었기 때문에 dp[0]은 0으로 초기화 해줘야한다.
-        // DP탐색
+
         for (int money : mArr) {
+            // DP탐색
             for (int i = money; i < dp.length; i++) {
                 dp[i] = Math.min(dp[i], i/money + i%money); // 거슬러 줄 동전의 최소개수
                 //dp[i] = Math.min(dp[i], dp[i-money] + 1); // 거슬러 줄 동전의 최소개수

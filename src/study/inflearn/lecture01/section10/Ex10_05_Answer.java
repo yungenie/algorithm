@@ -25,8 +25,9 @@ public class Ex10_05_Answer {
         int[] dp = new int[m+1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         //dp[0] = 0; //왜?
-        // DP탐색
+
         for (int money : mArr) {
+            // DP탐색
             for (int i = money; i < dp.length; i++) {
                 dp[i] = Math.min(dp[i], i/money + i%money); // 거슬러 줄 동전의 최소개수
                 //dp[i] = Math.min(dp[i], dp[i-money] + 1); // 거슬러 줄 동전의 최소개수
