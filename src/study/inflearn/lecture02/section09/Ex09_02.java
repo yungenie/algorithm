@@ -3,7 +3,7 @@ package study.inflearn.lecture02.section09;
 import java.util.Scanner;
 
 /**
- * 수도배관공사 - 다이나믹 프로그래밍
+ * 수도배관공사 - 다이나믹 프로그래밍 (백준 - 2073)
  * 강사님 해법 듣고 재도전 (소요시간 : 18분)
  */
 public class Ex09_02 {

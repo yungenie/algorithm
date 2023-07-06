@@ -3,7 +3,7 @@ package study.inflearn.lecture02.section09;
 import java.util.Scanner;
 
 /**
- * 사탕 가게 - 다이나믹 프로그래밍
+ * 사탕 가게 - 다이나믹 프로그래밍 (백준 - 4781)
  */
 public class Ex09_01_Answer {
     public static void main(String[] args) {

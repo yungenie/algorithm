@@ -2,6 +2,9 @@ package study.inflearn.lecture02.section09;
 
 import java.util.Scanner;
 
+/**
+ * 수도배관공사 - 다이나믹 프로그래밍 (백준 - 2073)
+ */
 public class Ex09_02_Answer {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
