@@ -3,7 +3,7 @@ package study.inflearn.lecture02.section09;
 import java.util.Scanner;
 
 /**
- * 계단 오르기 다이나믹 프로그래밍 (백준 - 2579)
+ * 계단 오르기 - 다이나믹 프로그래밍 (백준 - 2579)
  */
 public class Ex09_03_Answer {
     public int solution(int n, int[] score) {
