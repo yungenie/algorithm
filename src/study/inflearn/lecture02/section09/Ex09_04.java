@@ -27,19 +27,21 @@ public class Ex09_04 {
             // for nNum j
                 // j+i map에 있는지
                     // 있으면 카운트
-                    // max()?
-                // 없으면 continue
+                // 없으면
+                    // 길이 최대값
+                    // 길이 초기화
+                    // j증가 23455678
 
         int len = 1;
         for (int i = 1; i < dp.length; i++) {
             for (int j = 0; j < n; ) {
                 int next = nNum[j]+i;
-                if (map.containsKey(next)) {
+                if (map.containsKey(next)) { // 다음 항이 map 포함되어 있는 경우
                     len++;
-                    j = map.get(next);
+                    j = map.get(next); // 다음 항 인덱스
                 } else {
                     dp[i] = Math.max(len, dp[i]);
-                    len = 1;
+                    len = 1; // 길이 초기화
                     j++;
                 }
             }
