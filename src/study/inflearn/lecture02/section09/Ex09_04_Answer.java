@@ -19,12 +19,12 @@ public class Ex09_04_Answer {
                 int pre = 2 * nums[i] - nums[j]; // i번째 앞에 항(i번째 값 - 공차) : nums[i] - (nums[j] - nums[i]) //✨
 
                 /*
-                순차 탐색 O(N)
-                int k = 0;
-                for (k = i-1; k >= 1 ; k--) {
-                    if (nums[k] == pre) break;
-                }
-                dy[i][j] = Math.max(dy[i][j], dy[k][i] + 1);
+                    순차 탐색 O(N)
+                    int k = 0;
+                    for (k = i-1; k >= 1 ; k--) {
+                        if (nums[k] == pre) break;
+                    }
+                    dy[i][j] = Math.max(dy[i][j], dy[k][i] + 1);
                 */
 
                 // 이분검색 O(logN) //✨
