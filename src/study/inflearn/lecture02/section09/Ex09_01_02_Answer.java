@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 소요시간 : 26분
  * 틀림
  */
-public class Ex09_01_02 {
+public class Ex09_01_02_Answer {
     public static void main(String[] args) {
 
         // 수정한 코드

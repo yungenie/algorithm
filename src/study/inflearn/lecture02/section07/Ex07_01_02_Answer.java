@@ -8,7 +8,7 @@ import java.util.Queue;
  * 레벨 탐색
  * 2회독 틀림
  */
-public class Ex07_01_02 {
+public class Ex07_01_02_Answer {
     public int solution(int[] nums){
         int n = nums.length;
         /*
@@ -52,7 +52,7 @@ public class Ex07_01_02 {
     }
 
     public static void main(String[] args){
-        Ex07_01_02 T = new Ex07_01_02();
+        Ex07_01_02_Answer T = new Ex07_01_02_Answer();
         System.out.println(T.solution(new int[]{2, 2, 1, 2, 1, 1}));
         System.out.println(T.solution(new int[]{1, 0, 1, 1, 3, 1, 2, 1}));
         System.out.println(T.solution(new int[]{2, 3, 1, 0, 1, 1, 2, 3, 1, 5, 1, 3, 1}));
