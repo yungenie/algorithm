@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 순열
  * 2회독 틀림
  */
-public class Ex06_01_02 {
+public class Ex06_01_02_Answer {
 
     int target, len, answer;
     int[] arr;
@@ -82,7 +82,7 @@ public class Ex06_01_02 {
     }
 
     public static void main(String[] args){
-        Ex06_01_02 T = new Ex06_01_02();
+        Ex06_01_02_Answer T = new Ex06_01_02_Answer();
         //System.out.println(T.solution(123)); //132
         //System.out.println(T.solution(321)); //-1
         //System.out.println(T.solution(20573)); //20735
