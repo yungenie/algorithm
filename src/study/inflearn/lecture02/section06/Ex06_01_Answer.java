@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * 가장 가까운 큰수 - 깊이우선탐색 : DFS
+ * 가장 가까운 큰 수 - 깊이우선탐색 : DFS
  * 순열
  */
 public class Ex06_01_Answer {
@@ -48,9 +48,8 @@ public class Ex06_01_Answer {
         m = nums.size();
         ch = new int[m];
         DFS(0,0);
-        if(flag == false) return - 1;
 
-        return answer;
+        return flag == false? -1 : answer;
     }
 
     public static void main(String[] args){
