@@ -6,6 +6,12 @@ import java.util.Arrays;
  * 가장 가까운 큰 수 - 깊이우선탐색 : DFS
  * 순열
  * 2회독 틀림
+ *
+ * 요약
+ * - 자연수 n보다 큰 제일 작은 수 찾기
+ *     - 자연수 n 정렬해서 시간 복잡도 줄이기.
+ *     - 자연수 n 데이터 크기 만큼 체크배열로 메모이제이션 하기.
+ *     - return 값이 정해진 게 없기 때문에 조건에 맞는 flag 값이 둬서 백트래킹으로 return 되게 한다.
  */
 public class Ex06_01_02_Answer {
 
@@ -18,7 +24,7 @@ public class Ex06_01_02_Answer {
             DFS()의 탈출조건이 자연수 n보다 큰 수가 오면 answer변수에 답을 초기화 해준다.
             - 플래그값을 두는 이유는? ✨
                 - 그 다음에 스택에 남아 있는 재귀호출들은 호출되자마자 return되서 끝냅니다.
-                - 남아 있는 재귀함수들 모두 return, return..된다.
+                - 남아 있는 재귀함수들 모두 백트래킹으로 return, return..된다.
          */
         if (flag) return; // 탈출조건
         if (L == len && target < nums) {
