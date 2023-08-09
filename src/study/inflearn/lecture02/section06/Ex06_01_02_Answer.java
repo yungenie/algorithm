@@ -31,7 +31,7 @@ public class Ex06_01_02_Answer {
             answer = nums;
             flag = true;
         } else { // 재귀로 순열을 만드는 로직
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < len; i++) { // 배열의 0부터 시작하기 위해 i는 0으로 초기화
                 if (ch[i] == 0) {
                     /*
                         정렬된 순열에서 하나씩 조합 ✨
@@ -89,10 +89,10 @@ public class Ex06_01_02_Answer {
 
     public static void main(String[] args){
         Ex06_01_02_Answer T = new Ex06_01_02_Answer();
-        //System.out.println(T.solution(123)); //132
-        //System.out.println(T.solution(321)); //-1
-        //System.out.println(T.solution(20573)); //20735
-        //System.out.println(T.solution(27711)); //71127
+        System.out.println(T.solution(123)); //132
+        System.out.println(T.solution(321)); //-1
+        System.out.println(T.solution(20573)); //20735
+        System.out.println(T.solution(27711)); //71127
         System.out.println(T.solution(54312)); //54321
     }
 }
