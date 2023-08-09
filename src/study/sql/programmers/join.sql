@@ -53,3 +53,36 @@ SELECT A.BOOK_ID, B.AUTHOR_NAME, DATE_FORMAT(A.PUBLISHED_DATE, '%Y-%m-%d') AS PU
     ON A.AUTHOR_ID = B.AUTHOR_ID
  WHERE A.CATEGORY = '경제'
  ORDER BY A.PUBLISHED_DATE ASC
+
+
+-- Levevl 4 특정 기간동안 대여 가능한 자동차들의 대여비용 구하기 (난이도 상)
+/*
+    문제 :
+    자동차 종류가 '세단' 또는 'SUV' 인 자동차 중 2022년 11월 1일부터 2022년 11월 30일까지 대여 가능하고
+    30일간의 대여 금액이 50만원 이상 200만원 미만인 자동차
+    정렬 결과는 대여 FEE 금액을 기준으로 내림차순 정렬, 자동차 종류를 기준으로 오름차순 정렬,자동차 ID를 기준으로 내림차순
+
+    조건 :
+    할인된 가격 : 판매가 * (1-(할인율/100))
+    대여 가능한 자동차 ID 찾기 : 대여 가능하지 않은 자동차를 걸러낸다.
+    대여가 안되는 차는 ?
+        - 11월 1일부터 30일까지 대여 해야함.
+        - 대여 종료일이 11월 1일 이상이면 못빌림
+        - 대여 시작일이 11월 30일 이전 대상 또한 포함.
+    레퍼런스 중 CAR_ID가 동일한 차, 즉 한대의 차가 여러 히스토리를 가지므로 가장 최근 이력봐야한다고 했음.
+    MAX() 시도 했으나, 어차피 여러 히스토리를 갖는 차 중에 날짜 범위를 토대로 CAR_ID 제외한다.
+    날짜를 비교해서 자동으로 가장 최근 이력을 보게끔 되어 있음.
+*/
+SELECT A.CAR_ID,
+       A.CAR_TYPE,
+       ROUND(A.DAILY_FEE*30*(1-(DISCOUNT_RATE/100))) AS FEE
+  FROM CAR_RENTAL_COMPANY_CAR A
+  JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN C
+    ON A.CAR_TYPE = C.CAR_TYPE
+   AND C.DURATION_TYPE = '30일 이상'
+ WHERE A.CAR_TYPE IN ('세단','SUV')
+   AND A.CAR_ID NOT IN (SELECT B.CAR_ID
+                          FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY B
+                         WHERE B.END_DATE >= '2022-11-01' AND B.START_DATE <= '2022-11-30')
+   AND A.DAILY_FEE*30*(1-(C.DISCOUNT_RATE/100)) >= 500000 AND A.DAILY_FEE*30*(1-(C.DISCOUNT_RATE/100)) < 2000000
+ ORDER BY A.DAILY_FEE*30*(1-(C.DISCOUNT_RATE/100)) DESC, A.CAR_TYPE ASC, A.CAR_ID DESC
