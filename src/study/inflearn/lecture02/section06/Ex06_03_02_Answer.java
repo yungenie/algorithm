@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *  고민했던 부분
  *  - DFS 매개변수
  *  - 흰돌/검은돌 체크 배열을 1개 생성 vs 2개 생성
- *  - 흰돌/검은돌 정보를 담을 배열
+ *  - 흰돌/검은돌 정보를 담을 배열 (어떤 값을 담아야 하는 지)
  */
 public class Ex06_03_02_Answer {
     int n, answer;
