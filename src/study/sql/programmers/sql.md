@@ -34,3 +34,19 @@
 - SELECT 절에서 SEQ만 보이고 그룹화한 SEQ의 개수의 내림차순으로 해야할 때 위의 쿼리로 작성해야한다.
 - LIMIT n은 리턴할 행의 제한된 수(n)를 지정합니다.
 - 위에서 count로 집계된 최대 개수가 여러개인 경우 최대 개수 중 아무거나 한개가 반환된다. 
+
+## JOIN
+- SQL 조인 시각화 도우미 
+- https://sql-joins.leopard.in.ua/
+
+### LEFT JOIN
+```
+SELECT * 
+  FROM TableA A
+  LEFT JOIN TableB B 
+         ON A.key = B.key
+```
+- 조인문의 왼쪽 테이블(A)의 모든 결과를 가져온 후 오른쪽 테이블(B)의 데이터를 매칭하고, 
+- 매칭되는 데이터가 없는 경우 B항목들의 데이터를 NULL로 표시한다.
+- `Level 3 없어진 기록 찾기` 문제 중 발취
+  ![img.png](../img/join_없어진기록찾기.png)
