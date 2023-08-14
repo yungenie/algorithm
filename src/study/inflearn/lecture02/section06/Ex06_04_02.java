@@ -13,8 +13,6 @@ public class Ex06_04_02 {
     HashMap<Character, Integer> map; // 문자 빈도수 해싱
     Deque<Character> temp; // 팰린드롬
     public void DFS() {
-        System.out.println("temp = " + temp);
-        
         if (temp.size() == n) {
             String palindrome = "";
             for (char c : temp) {palindrome += c;}
