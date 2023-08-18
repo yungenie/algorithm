@@ -140,3 +140,18 @@ FROM ANIMAL_INS A
               ON A.ANIMAL_ID = B.ANIMAL_ID
 WHERE A.SEX_UPON_INTAKE LIKE '%Intact%'
   AND B.SEX_UPON_OUTCOME NOT LIKE '%Intact%';
+
+
+
+-- Level 2 상품 별 오프라인 매출 구하기
+-- 테이블에서 상품코드 별 매출액(판매가 * 판매량) 합계를 출력
+-- 매출액을 기준으로 내림차순 정렬해주시고 매출액이 같다면 상품코드를 기준으로 오름차순 정렬
+-- 문제랑 예시랑 확실하게 읽기.
+-- (헷갈리는 부분) 상품 별로 중복되지 않는 8자리 상품코드 값을 가지며, 앞 2자리는 카테고리 코드를 의미합니다.
+-- (헷갈리는 부분) 동일한 날짜, 상품 ID 조합에 대해서는 하나의 판매 데이터만 존재합니다.
+SELECT A.PRODUCT_CODE, SUM(B.SALES_AMOUNT) * A.PRICE AS PRICE
+  FROM PRODUCT A
+  JOIN OFFLINE_SALE B
+    ON A.PRODUCT_ID = B.PRODUCT_ID
+ GROUP BY B.PRODUCT_ID
+ ORDER BY PRICE DESC, PRODUCT_CODE ASC;
