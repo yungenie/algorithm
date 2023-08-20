@@ -155,3 +155,40 @@ SELECT A.PRODUCT_CODE, SUM(B.SALES_AMOUNT) * A.PRICE AS PRICE
     ON A.PRODUCT_ID = B.PRODUCT_ID
  GROUP BY B.PRODUCT_ID
  ORDER BY PRICE DESC, PRODUCT_CODE ASC;
+
+-- Level 5 상품을 구매한 회원 비율 구하기
+/*
+    년,월 별로 상품을 구매한 회원수와 상품을 구매한 회원비율을 구하는 문제
+
+    2021년에 가입한 전체 회원들 중 상품을 구매한 회원수 >> 2021년에 가입한 회원을 USER_INFO ,ONLINE_SALE  조인하면 상품을 구매한 회원들의 목록이 되는 것.
+    회원수를 구할 때 COUNT(USER_ID)로 하게 되면 중복 제거가 안되므로, COUNT(DISTINCT(A.USER_ID)) 해줘야한다.
+    *  COUNT() 함수는 컬럼의 데이터 개수
+
+    상품을 구매한 회원의 비율 >> (2021년에 가입한 회원 중 상품을 구매한 회원수 / 2021년에 가입한 전체 회원 수) 소수점 두번째자리에서 반올림
+    2021년에 가입한 전체 회원 수 >> 2021년에 가입은 했지만 ONLINE_SALE에는 구매 이력이 없을 수도 있으니 USER_INFO에서 2021년에 가입한 회원 수를 구해야한다.
+
+    소수점 두번째자리에서 반올림 하라는 의미는 첫번째 자리까지 보여주면 된다는 의미.
+    * ROUND(숫자, 지정한 자릿수 + 1의 자릿수에서 반올림하고 난뒤의 소수점 자리 수 지정) >> ex) ROUND(123.4567, 1)는 123.5이다.
+
+    SELECT *
+      FROM USER_INFO A
+      JOIN ONLINE_SALE B
+        ON A.USER_ID = B.USER_ID
+     WHERE DATE_FORMAT(A.JOINED, "%Y") = "2021"
+     결과 >> 2021년에 가입한 회원들의 상품 구매 목록
+
+
+    GROUP BY DATE_FORMAT(B.SALES_DATE, "%Y"), DATE_FORMAT(B.SALES_DATE, "%Y")로 년,월 별로 그룹핑을 한다.
+
+*/
+
+SELECT DATE_FORMAT(B.SALES_DATE, "%Y") AS YEAR
+        , DATE_FORMAT(B.SALES_DATE, "%m") AS MONTH
+        , COUNT(DISTINCT(A.USER_ID)) AS PUCHASED_USERS
+        , ROUND(COUNT(DISTINCT(A.USER_ID)) / (SELECT COUNT(DISTINCT(USER_ID)) FROM USER_INFO WHERE DATE_FORMAT(JOINED, "%Y") = "2021" ),1) AS PUCHASED_RATIO
+  FROM USER_INFO A
+  JOIN ONLINE_SALE B
+    ON A.USER_ID = B.USER_ID
+ WHERE DATE_FORMAT(A.JOINED, "%Y") = "2021"
+ GROUP BY YEAR, MONTH
+ ORDER BY YEAR, MONTH ASC
