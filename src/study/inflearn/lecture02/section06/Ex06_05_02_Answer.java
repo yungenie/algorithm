@@ -53,10 +53,10 @@ public class Ex06_05_02_Answer {
         }
     }
     public String[] solution(String s){
-        this.s = s;
-        n = s.length();
-        temp = new Stack();
-        result = new ArrayList<>();
+        this.s = s; // 주어진 문자열
+        n = s.length(); // 문자열 길이
+        temp = new Stack(); // ip 4자리 주소 담는 바구니
+        result = new ArrayList<>(); // 유효한 ip 주소 모음함
 
         // 완전 탐색
         DFS( 0);
@@ -69,6 +69,7 @@ public class Ex06_05_02_Answer {
     }
     public static void main(String[] args){
         /*
+            유효한 IP 주소 조건
             1) IP 주소는 4개의 숫자가 . 로 구분되어 있습니다.
             2) IP 주소의 4개의 숫자는 0 ~ 255사이의 숫자로 구성됩니다.(0, 255포함)
             3) IP 주소의 4개의 숫자는 0으로 시작하는 2자리 이상의 숫자는 안됩니다.

@@ -11,9 +11,9 @@ import java.util.ArrayList;
  *  - 흰돌/검은돌 정보를 담을 배열 (어떤 값을 담아야 하는 지)
  */
 public class Ex06_03_02_Answer {
-    int n, answer;
-    int[] ch;
-    int[][] cans;
+    int n, answer; // 선수의 수, 정답
+    int[] ch; // 선수의 흰돌,검은돌 사용 체크 (1:흰돌, 0:검은돌)
+    int[][] cans; // 선수 명단 (각 선수의 흰돌, 검은돌 능력치 포함)
     public void DFS(int L, int s) {
         // 탈출조건
         if (L == n/2){ // 매번 조합이 완성될 때마다 능력치 최소값 구하기
@@ -53,7 +53,7 @@ public class Ex06_03_02_Answer {
     public int solution(int[][] cans){
         this.cans = cans;
         answer = Integer.MAX_VALUE;
-        n = cans.length;
+        n = cans.length; // 선수의 수
         /*
             ✨1개의 체크 배열로 생성하는 이유?
             - cans.length(n)/2 크기의 2개의 배열이 생성되면 구현하기 더 복잡해진다.

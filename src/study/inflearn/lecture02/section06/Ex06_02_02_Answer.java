@@ -13,9 +13,9 @@ import java.util.Stack;
 public class Ex06_02_02_Answer {
 
     int n = 7;
-    Stack<Integer> pm; // 순열 : permutation
-    int[][] relation;
-    int[] ch;
+    Stack<Integer> pm; // 순열(permutation)을 담는 자료
+    int[][] relation; // 싫어하는 학생 정보
+    int[] ch; // 학생의 사용 체크
     int answer;
     public void DFS(int L) {
         // 탈출조건
@@ -62,12 +62,13 @@ public class Ex06_02_02_Answer {
             relation[x[0]][x[1]] = 1;
             relation[x[1]][x[0]] = 1;
         }
-        // 체크 배열
+        // 주어진 학생의 사용 체크배열 (이미 사용한 학생 중복으로 사용하지 않게 처리)
         ch = new int[n + 1];
         /*
             Stack은 queue(인터페이스)와 달리 클래스이다.
             ArrayList는 List 인터페이스의 구현체
          */
+        // 순열의 조합을 만들기 위한 자료담기
         pm = new Stack<>();
         DFS(0);
 

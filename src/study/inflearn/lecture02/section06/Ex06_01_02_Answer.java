@@ -15,10 +15,10 @@ import java.util.Arrays;
  */
 public class Ex06_01_02_Answer {
 
-    int target, len, answer;
-    int[] arr;
-    int[] ch;
-    boolean flag;
+    int target, len, answer; // 주어진 숫자, 주어진 숫자 길이, 가장 가까운 큰 수
+    int[] arr; // 주어진 숫자가 담긴 배열
+    int[] ch; // 주어진 숫자 사용 배열
+    boolean flag; // 재귀함수 탈출 플래그
     public void DFS(int L, int nums) { // L:레벨, nums: 각 자릿수의 조합의 수
         /*
             DFS()의 탈출조건이 자연수 n보다 큰 수가 오면 answer변수에 답을 초기화 해준다.
@@ -68,7 +68,7 @@ public class Ex06_01_02_Answer {
 
         String str = String.valueOf(n);
         len = str.length();
-        ch = new int[len]; // 체크배열
+        ch = new int[len]; // 주어진 숫자의 사용 체크배열
         /*
             자연수 n과 구성이 같은 숫자로 중 n보다 큰 수 중 가장 작은 수를 반환하는 문제
             - 큰 수들을 모든 구한 후 작은 수를 구하면 time limit 납니다.
@@ -76,7 +76,7 @@ public class Ex06_01_02_Answer {
             - 시간복잡도를 줄이려면 자연수 n을 정렬해서 작은 경우의 수부터 찾아 n보다 크면 바로 반환을 하도록 합니다.
             - 즉, 정렬을 하는 이유✨는 만들어지는 조합의 수의 순서가 오름차순으로 나타나게 하기 위해서 입니다.
          */
-        arr = new int[len]; // 순열배열
+        arr = new int[len]; // 주어진 숫자가 담긴 배열
         for (int k = 0; k < len; k++) {
             arr[k] = Integer.parseInt(String.valueOf(str.charAt(k)));
         }

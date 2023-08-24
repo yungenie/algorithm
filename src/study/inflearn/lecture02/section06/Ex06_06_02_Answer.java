@@ -5,9 +5,11 @@ package study.inflearn.lecture02.section06;
  *  경우의 수 조합을 메모이제이션으로 등록
  */
 public class Ex06_06_02_Answer {
-    int[] dy;
-    String s;
-    int n;
+
+    String s; // 주어진 수
+    int n; // 주어진 수의 길이
+    int[] dy; // 인덱스 : 부모레벨, 값 : 자식레벨 경우의 수 조합
+
     public int DFS(int start){
         /*
             앞 문제들은 데이터의 조합을 완전탐색으로 구했다면,
@@ -54,6 +56,10 @@ public class Ex06_06_02_Answer {
     }
 
     public static void main(String[] args){
+        /*
+            알파벳 암호화 코드 조건
+            알파벳 A ~ Z까지 1 ~ 26 할당 번호
+         */
         Ex06_06_02_Answer T = new Ex06_06_02_Answer();
         System.out.println(T.solution("25114"));
         System.out.println(T.solution("23251232"));

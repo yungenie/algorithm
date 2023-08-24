@@ -8,9 +8,9 @@ import java.util.*;
  */
 public class Ex06_04_03 {
 
-    ArrayList<String> result;
-    HashMap<Character, Integer> map;
-    Deque<Character> deque;
+    ArrayList<String> result; // 팰린드롬 경우의 수들 담는 자료구조
+    HashMap<Character, Integer> map; // 주어진 문자의 빈도수 해싱
+    Deque<Character> deque; // 팰린드롬 만드는 자료구조
     int n;
     public void DFS() {
         // 탈출조건 : 주어진 문자열 크기의 팰린드롬 완성했을 경우, ArrayList에 담기
@@ -54,20 +54,20 @@ public class Ex06_04_03 {
         n = s.length();
         result = new ArrayList<>();
 
-        // 각 문자의 빈도수 해싱 ex) abbcceee ->  a:1, e:3, b:2, c:2
+        // 주어진 문자의 빈도수 해싱 ex) abbcceee ->  a:1, e:3, b:2, c:2
         map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0)+1);
         }
 
-        // 각 문자의 개수가 홀수인 key 2개 이상인 경우 빈배열 반환
+        // 주어진 문자의 빈도수가 홀수 개수인 key 2개 이상인 경우 빈배열 반환
         int cnt = 0;
         for (Integer value : map.values()) {
             if (value%2 == 1) cnt++;
         }
         if (cnt >= 2) return new String[]{};
 
-        // 홀수인 key 1개인 경우 팰린드롬 가운데에 넣기.
+        // 홀수 개수인 key 1개인 경우 팰린드롬 가운데에 넣기.
         deque = new LinkedList<>();
         if (cnt == 1) {
             for (Map.Entry<Character, Integer> entry : map.entrySet()) {
