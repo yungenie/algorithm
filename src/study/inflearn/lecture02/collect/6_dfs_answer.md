@@ -345,26 +345,16 @@ public class Ex06_05_02_Answer {
 package study.inflearn.lecture02.section06;
 
 public class Ex06_06_02_Answer {
-    
+
     String s; // 주어진 수
     int n; // 주어진 수의 길이
     int[] dy; // 인덱스 : 부모레벨, 값 : 자식레벨 경우의 수 조합
 
-		public int DFS(int start){
-        /*
-            앞 문제들은 데이터의 조합을 완전탐색으로 구했다면,
-            이 문제는 경우의 수 조합으로 메모이제이션으로 시간복잡도를 줄인다.
-            예를 들어,
-            2로 시작할 때 '5114'의 모든 경우의 수 + 25로 시작할 때 '114'의 모든 경우의 수를 더한다.
-         */
+    public int DFS(int start){
         if(dy[start] > 0) return dy[start];
         if(start < n && s.charAt(start) == '0') return 0;
         if(start == n-1 || start == n) return 1; // 재귀의 종착점 or 종착점 + 1 인 경우
         else{
-			/*
-                처음 재귀함수는 요소 1개씩만 보기 때문에
-                백트랙킹으로 요소를 2개 이상씩 탐색할 때 알파벳 암호 범위를 체크한다.
-             */
             int res = DFS(start + 1);
             int tmp = Integer.parseInt(s.substring(start, start + 2));
             if(tmp <= 26) res += DFS(start + 2);
@@ -384,6 +374,14 @@ public class Ex06_06_02_Answer {
         /*
             알파벳 암호화 코드 조건
             알파벳 A ~ Z까지 1 ~ 26 할당 번호
+          
+            앞 문제들은 데이터의 조합을 완전탐색으로 구했다면,
+            이 문제는 경우의 수 조합으로 메모이제이션으로 시간복잡도를 줄인다.
+            예를 들어,
+            2로 시작할 때 '5114'의 모든 경우의 수 + 25로 시작할 때 '114'의 모든 경우의 수를 더한다.
+
+            처음 재귀함수는 숫자 1개씩만 보기 때문에
+            백트랙킹으로 숫자 2개 이상씩 탐색할 때 알파벳 암호 범위를 체크한다.
          */
         Ex06_06_02_Answer T = new Ex06_06_02_Answer();
         System.out.println(T.solution("25114"));
