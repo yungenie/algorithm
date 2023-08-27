@@ -9,14 +9,14 @@ import java.util.Queue;
  */
 public class Ex07_01_Answer {
     public int solution(int[] nums){
-        int n = nums.length;
+        int n = nums.length; // 배열의 크기
         int[] ch = new int[n]; // 한번 방문한 지점 체크, 방문했던 지점은 탐색하지 않기 위함
         Queue<Integer> q = new LinkedList<>();
-        q.offer(0);
-        ch[0] = 1;
-        int L = 0;
+        q.offer(0); // 배열의 인덱스
+        ch[0] = 1; // 현재위치 체크
 
         // 레벨 탐색
+        int L = 0;
         while(!q.isEmpty()){
             int len = q.size(); // 레벌의 노드수
             // 부모 레벨 탐색
@@ -39,6 +39,15 @@ public class Ex07_01_Answer {
     }
 
     public static void main(String[] args){
+        /*
+            현수가 집에서 상점까지 최소 점프 횟수
+            nums 배열의 인덱스가 99까지 있다.
+
+            인덱스 : 0 - 99
+            점프력 : 0 ~ 10
+
+            현재위치(인덱스) + 점프력(배열의 값) => 99(상점)
+         */
         Ex07_01_Answer T = new Ex07_01_Answer();
         System.out.println(T.solution(new int[]{2, 2, 1, 2, 1, 1}));
         System.out.println(T.solution(new int[]{1, 0, 1, 1, 3, 1, 2, 1}));
