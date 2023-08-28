@@ -16,15 +16,13 @@ public class Ex07_04_Answer {
         Q.offer(new int[]{0, 0});
         int L = 0;
 
-        // BFS 돌기
+        // BFS 레벨 탐색
         while(!Q.isEmpty()){
             L++; // L레벨 먼저 증가 (자식노드 레벨)
-            // 레벨 탐색
             int len = Q.size();
             for(int i = 0; i < len; i++){
                 int[] p = Q.poll();
-                // 자식레벨 탐색
-                for(int k = 0; k < 4; k++){
+                for(int k = 0; k < 4; k++){ // 자식레벨 탐색
                     int nx=p[0]+dx[k];
                     int ny=p[1]+dy[k];
                     if(nx >= 0 && nx < 7 && ny >= 0 && ny < 7 && board[nx][ny] == 0){

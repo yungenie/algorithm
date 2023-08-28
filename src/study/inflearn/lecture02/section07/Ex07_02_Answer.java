@@ -58,6 +58,9 @@ public class Ex07_02_Answer {
             뒤쪽으로 연속 두번 점프 못한다. (1이 아닐때만 or 0일 때만)
             가면 안되는 웅덩이에 대한 조건 주어짐.
 
+            움직이는 생명 : 1명
+            도착지점 : 고정
+            가중치 : 이동한 위치에 가중치가 앞/뒤로 2개 존재함.
          */
         Ex07_02_Answer T = new Ex07_02_Answer();
         System.out.println(T.solution(new int[]{11, 7, 20}, 3, 2, 10));
