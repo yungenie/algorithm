@@ -21,11 +21,11 @@ public class Ex07_05_Answer {
         // 빌딩지점에서 각 빈땅으로 가는 최단 거리 구하기
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (board[i][j] == 1) {
+                if (board[i][j] == 1) { // 빌딩일 경우
                     answer = Integer.MAX_VALUE;
-                    Q.offer(new int[]{i, j});
-                    int L = 0;
+                    Q.offer(new int[]{i, j}); // 빌딩의 좌표
                     // BFS 돌기
+                    int L = 0;
                     while(!Q.isEmpty()){
                         L++; // L레벨 먼저 증가 (자식노드 레벨)
                         // 레벨 탐색
@@ -37,19 +37,19 @@ public class Ex07_05_Answer {
                                 int nx=cur[0]+dx[x];
                                 int ny=cur[1]+dy[x];
                                 if(nx >= 0 && nx < n && ny >= 0 && ny < n && board[nx][ny] == emptyLand){ //시간복잡도를 줄이기 위해서 한번 방문했던 빈땅 체크하기
-                                    board[nx][ny]--; // 규칙에 의해서 체크 해야함
-                                    dist[nx][ny] += L; // 모든 빌딩에서 이동거리 누적
+                                    board[nx][ny]--; // 규칙에 의해서 체크 해야함 // todo
+                                    dist[nx][ny] += L; // 모든 빌딩에서 이동거리 누적 // todo ?
                                     Q.offer(new int[]{nx, ny});
-                                    answer = Math.min(answer, dist[nx][ny]);
+                                    answer = Math.min(answer, dist[nx][ny]); // todo
                                 }
                             }
                         }
                     }
-                    emptyLand--; // 빌딩의 개수 만큼 감소된다.
+                    emptyLand--; // 빌딩의 개수 만큼 감소된다. // todo
                 }
             }
         }
-
+        // 빈땅이 없어서 막혔을 경우 -1 반환
         return answer == Integer.MAX_VALUE? -1 : answer;
     }
 
