@@ -7,7 +7,7 @@ import java.util.Queue;
  * 숲속의 기사 - 넓이우선탐색 : BFS
  */
 public class Ex07_06_02_Answer {
-    public int solution(int[][] board){ // 숲의 지도 정보
+    public int solution(int[][] board){
         int n = board.length; // 가로(행)
         int m = board[0].length; // 세로(열)
         int[][] dist = new int[n][m]; // dist[i][j]는 영희와 기사가 딸기지점까지 가는 최소이동거리
@@ -26,13 +26,13 @@ public class Ex07_06_02_Answer {
                         int len = Q.size();
                         for (int k = 0; k < len; k++) {
                             int[] cur = Q.poll();
-                            for (int[] dir : new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}) { // 방향배열 상하좌우
+                            for (int[] dir : new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}) {
                                 int nx = cur[0] + dir[0]; // 이동하는 행좌표
                                 int ny = cur[1] + dir[1]; // 이동하는 열좌표
-                                if (nx >= 0 && nx < n && ny >=0 && ny < m && board[nx][ny] != 1) { // 지도 범위 넘어가지 않게, 움직일 수 없는 곳을 제외
+                                if (nx >= 0 && nx < n && ny >=0 && ny < m && board[nx][ny] != 1) {
                                     if(ch[nx][ny] == 0){
                                         ch[nx][ny] = 1;
-                                        dist[nx][ny] += L; // 영희와 기사가 지도에서 이동하는 지점의 이동거리 누적 합
+                                        dist[nx][ny] += L;
                                         Q.offer(new int[]{nx, ny});
                                     }
                                 }
@@ -57,6 +57,12 @@ public class Ex07_06_02_Answer {
     }
 
     public static void main(String[] args){
+        /*
+            문제 : 영희가 산딸기를 기사에게 가져다주는 가장 짧은 날 수 반환
+            움직이는 생명 : 2명 (기사를 영희와 동일하게 보고 영희 2명이 각 산딸기 지점에 가는 최소 이동거리를 구한다)
+            도착지점 : 고정
+            가중치 : 방향배열 상하좌우
+         */
         Ex07_06_02_Answer T = new Ex07_06_02_Answer();
         System.out.println(T.solution(new int[][]{{4, 1, 0, 0, 0, 0, 1, 0},
                 {0, 0, 0, 1, 0, 1, 0, 0},

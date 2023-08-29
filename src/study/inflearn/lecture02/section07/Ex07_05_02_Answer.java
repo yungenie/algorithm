@@ -11,6 +11,7 @@ public class Ex07_05_02_Answer {
         int answer = 0;
         int n = board.length; // 지도의 크기
         int[][] dist = new int[n][n]; // 각 빌딩에서 i행,j열 지점으로 오는 이동거리의 합 (최소이동횟수)
+
         Queue<int[]> Q = new LinkedList<>(); // 빌딩의 이동거리 (빈땅으로만 이동가능)
 
         // 빌딩 배열에서 빌딩 찾아 빈땅으로 이동하며 각 빌딩으로부터 최적의 거리의 집 좌표 구하기

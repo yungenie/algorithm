@@ -31,6 +31,7 @@ public class Ex07_03_Answer {
             if(ch[L%2][e] == 1) return L; // 송아지의 현재 위치에 현수가 갔으면 만난 것으로 보고 반환
         }
         return -1;
+
     }
 
     public static void main(String[] args){
