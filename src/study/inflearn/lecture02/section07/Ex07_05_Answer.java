@@ -37,15 +37,15 @@ public class Ex07_05_Answer {
                                 int nx=cur[0]+dx[x];
                                 int ny=cur[1]+dy[x];
                                 if(nx >= 0 && nx < n && ny >= 0 && ny < n && board[nx][ny] == emptyLand){ //시간복잡도를 줄이기 위해서 한번 방문했던 빈땅 체크하기
-                                    board[nx][ny]--; // 규칙에 의해서 체크 해야함 // todo
-                                    dist[nx][ny] += L; // 모든 빌딩에서 이동거리 누적 // todo ?
+                                    board[nx][ny]--; // 규칙에 의해서 체크 해야함
+                                    dist[nx][ny] += L; // 모든 빌딩에서 이동거리 누적
                                     Q.offer(new int[]{nx, ny});
-                                    answer = Math.min(answer, dist[nx][ny]); // todo
+                                    answer = Math.min(answer, dist[nx][ny]);
                                 }
                             }
                         }
                     }
-                    emptyLand--; // 빌딩의 개수 만큼 감소된다. // todo
+                    emptyLand--; // 빌딩의 개수 만큼 감소된다.
                 }
             }
         }
@@ -54,6 +54,12 @@ public class Ex07_05_Answer {
     }
 
     public static void main(String[] args){
+        /*
+            문제 :
+            움직이는 생명 : 명
+            도착지점 :
+            가중치 : 방향배열 상하좌우
+         */
         Ex07_05_Answer T = new Ex07_05_Answer();
         System.out.println(T.solution(new int[][]{{1, 0, 2, 0, 1}, {0, 0, 0, 0, 0}, {0, 2, 1, 0, 0}, {2, 0, 0, 2, 2}, {0, 0, 0, 0, 0}}));
         System.out.println(T.solution(new int[][]{{1, 0, 0, 1}, {0, 0, 2, 0}, {0, 0, 1, 0}, {2, 2, 0, 0}}));
