@@ -1,9 +1,7 @@
 package study.inflearn.lecture02.section08;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * 교육 과정 - 그래프 최단거리 : Graph
@@ -58,6 +56,7 @@ public class Ex08_06_04_Answer {
         for (int i = 0; i < n; i++) {
             answer[i] = subjects[result.get(i)];
         }
+        System.out.println(Arrays.toString(answer));
         return answer;
     }
     public static void main(String[] args){

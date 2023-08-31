@@ -17,18 +17,18 @@ public class Ex08_05_Answer {
         for(int i = 0; i < n; i++) Arrays.fill(cost[i], Integer.MAX_VALUE);
         cost[s[0]][s[1]] = 0; // 출발지점 비용 초기화
 
-        PriorityQueue<int[]> pQ = new PriorityQueue<>((a, b) -> a[2] - b[2]);
-        pQ.offer(new int[]{s[0], s[1], 0});
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[2] - b[2]);
+        pq.offer(new int[]{s[0], s[1], 0});
 
         // 다익스트라 최소 격자 이동 수
-        while (!pQ.isEmpty()) {
-            int[] cur = pQ.poll();
+        while (!pq.isEmpty()) {
+            int[] cur = pq.poll();
 
             if (cur[2] > cost[cur[0]][cur[1]]) continue;// BFS에서 체크한 지점 안가는 것도 동일한 효과의 역할
             if (cur[0] == e[0] && cur[1] == e[1]) return cost[cur[0]][cur[1]]; // 도착지점에 도착했을 때 반환
 
             // 겪자밖 또는 벽을 만날때까지 이동
-            for(int[] dir : new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}) { // 방향 배열 (상하좌우)
+            for (int[] dir : new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}) { // 방향 배열 (상하좌우)
                 int nx = cur[0]; // 행
                 int ny = cur[1]; // 열
                 int cnt = cur[2]; // 이동거리
@@ -44,9 +44,9 @@ public class Ex08_05_Answer {
                 ny -= dir[1];
                 cnt--;
 
-                if (cost[nx][ny] > cnt){
+                if (cost[nx][ny] > cnt) {
                     cost[nx][ny] = cnt;
-                    pQ.offer(new int[]{nx, ny, cnt});
+                    pq.offer(new int[]{nx, ny, cnt});
                 }
             }
         }
