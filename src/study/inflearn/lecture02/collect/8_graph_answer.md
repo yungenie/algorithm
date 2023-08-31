@@ -1,6 +1,6 @@
 # 그래프 정답 코드 정리
 
-# 1. 최소 비행료
+# 1. 최소 비행료 (인접리스트, 다익스트라 변형 LinkedList)
 - 문제 : 현수가 사는 도시에서 목적지 도시까지 가는데 드는 최소비용을 반환
 - 인접리스트, 연결리스트, 다익스트라 변형
 
@@ -64,7 +64,7 @@ public class Ex08_01_03_Answer {
 }
 ```
 
-# 2. 최소 환승 경로
+# 2. 최소 환승 경로 (연결되는 지점 LinkedList, 해싱)
 - 문제 : 출발역에서 도착역까지 최소 환승 경로로 이동했을 때 최소 환승 횟수
 
 ```java
@@ -114,7 +114,7 @@ public class Ex08_02_03_Answer {
 }
 
 ```
-# 3. 벽 허물기
+# 3. 벽 허물기 (다익스트라 PriorityQueue)
 - 현수가 (0, 0) 지점에서 (n-1, m-1)지점까지 가기 위해서 허물어야 하는 최소 벽의 개수
 
 ```java
@@ -135,12 +135,13 @@ public class Ex08_03_03_Answer {
         while (!pq.isEmpty()) {
             int[] cur = pq.poll();
 
-            if (cur[2] > cost[cur[0]][cur[1]]) continue; // 이미 최대값으로 초기화 되어 있는데, 그것보다 크면 스킵해야된다.
+            if (cur[2] > cost[cur[0]][cur[1]]) continue;
 
             for (int[] dir : new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}) {
                 int nx = cur[0] + dir[0];
                 int ny = cur[1] + dir[1];
-
+                // ✨ 꺼낸 지점의 최신화된 비용보다 꺼낸 지점의 비용이 더 크다면 다음 레벨 뻗지 않는다.
+                // 최소값을 구하는 문제이므로, 이미 최소비용이 있기 때문에 더 이상 다음 레벨을 계산하지 않는다.
                 if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
 
                 int nextCost = cur[2] + board[nx][ny];
@@ -160,6 +161,198 @@ public class Ex08_03_03_Answer {
         System.out.println(T.solution(new int[][]{{0, 1, 1, 0, 1, 1},{0, 1, 1, 1, 1, 1},{1, 0, 0, 0, 1, 1}, {1, 1, 0, 1, 1, 1}, {1, 1, 0, 1, 1, 0}, {1, 0, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 0}}));
         System.out.println(T.solution(new int[][]{{0, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 0, 0, 0, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}}));
         System.out.println(T.solution(new int[][]{{0, 0, 1, 0, 1, 1, 1},{1, 1, 0, 0, 1, 1, 1},{1, 1, 0, 1, 0, 1, 1}, {0, 0, 1, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 1}, {1, 1, 0, 1, 1, 1, 0}}));
+    }
+}
+```
+
+
+# 4. 방향 바꾸기 (다익스트라 PriorityQueue)
+- 현수가 (0, 0) 지점에서 (n-1, m-1)지점까지 가기 위해서 방향을 바꾸어야 하는 최소 격자의 개수
+- 한 격자의 방향은 현수가 원하는 방향으로 오직 한번 바꿀 수 있다.
+    - 의미해석 : 한 격자의 방향이 달라지면 비용이 1씩 든다.
+    - 예를 들어, 3의 방향인데 2방향으로 간다면 그 비용이 1 들고, 1방향으로 가도 비용이 1이 든다.
+    - 코드조건으로 본다면 3!=방향 => 비용이 1씩 든다.
+
+```java
+public class Ex08_04_Answer {
+    public int solution(int[][] board) {
+        int n = board.length; // 가로(행)
+        int m = board[0].length; // 세로(열)
+
+        // 방향배열 (순서 : 오른쪽 > 왼쪽 > 아래 > 위)
+        int[] dx = {0, 0, 1, -1};
+        int[] dy = {1, -1, 0, 0};
+
+        int[][] cost = new int[n][m];
+        for(int i = 0; i < n; i++) Arrays.fill(cost[i], Integer.MAX_VALUE);
+        cost[0][0] = 0; // 출발지점
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[2]));
+        pq.add(new int[]{0, 0, 0}); // {행, 열, 비용(방향을 바꿀 때 1의 비용이 든다)}
+
+        while(!pq.isEmpty()) {
+            int[] cur = pq.poll();
+            // ✨ 꺼낸 지점의 최신화된 비용보다 꺼낸 지점의 비용이 더 크다면 다음 레벨 뻗지 않는다.
+            // 최소값을 구하는 문제이므로, 이미 최소비용이 있기 때문에 더 이상 다음 레벨을 계산하지 않는다.
+            if(cur[2] > cost[cur[0]][cur[1]]) continue;
+
+            for(int k = 0; k < 4; k++) {
+                int nx = cur[0] + dx[k];
+                int ny = cur[1] + dy[k];
+                if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+
+                int dir = board[cur[0]][cur[1]] - 1;
+                if(k == dir && cost[nx][ny] > cur[2]) {
+                    cost[nx][ny] = cur[2];
+                    pq.offer(new int[]{nx, ny, cur[2]});
+                }
+                else { // 해당 지점의 방향과 다른 방향일 때 1의 비용
+                    if (cost[nx][ny] > cur[2] + 1) {
+                        cost[nx][ny] = cur[2] + 1;
+                        pq.offer(new int[]{nx, ny, cur[2] + 1});
+                    }
+                }
+            }
+        }
+        return cost[n - 1][m - 1];
+    }
+    public static void main(String[] args){
+        Ex08_04_02 T = new Ex08_04_02();
+        System.out.println(T.solution(new int[][]{{3, 1, 3}, {1, 4, 2}, {4, 2, 3}}));
+        System.out.println(T.solution(new int[][]{{3, 2, 1, 3}, {1, 1, 4, 2}, {3, 4, 2, 1}, {1, 2, 2, 4}}));
+        System.out.println(T.solution(new int[][]{{3, 2, 1, 3, 1, 2}, {2, 1, 1, 1, 4, 2}, {2, 2, 2, 1, 2, 2}, {1, 3, 3, 4, 4, 4}, {1, 2, 2, 3, 3, 4}}));
+        System.out.println(T.solution(new int[][]{{3, 2, 1, 3, 1, 2, 2, 2}, {2, 1, 1, 1, 4, 2, 1, 1}, {2, 2, 2, 1, 2, 2, 3, 4}, {1, 3, 3, 4, 4, 4, 3, 1}, {1, 2, 2, 3, 3, 4, 3, 4}, {1, 2, 2, 3, 3, 1, 1, 1}}));
+        System.out.println(T.solution(new int[][]{{1, 2, 3, 2, 1, 3, 1, 2, 2, 2}, {1, 2, 2, 1, 1, 1, 4, 2, 1, 1}, {3, 2, 2, 2, 2, 1, 2, 2, 3, 4}, {3, 3, 1, 3, 3, 4, 4, 4, 3, 1}, {1, 1, 1, 2, 2, 3, 3, 4, 3, 4}, {1, 1, 1, 2, 2, 3, 3, 1, 1, 1}}));
+    }
+}
+```
+
+# 5. 공 굴리기 (다익스트라 PriorityQueue)
+- 시작위치에서 목표위치까지 이동하는 최단거리를 반환
+- 상, 하, 좌, 우 네 방향으로 빈 공간을 수직 또는 수평으로 이동하다가 벽을 만나면 멈춥니다.
+
+```java
+public class Ex08_05_Answer {
+    public int solution(int[][] board, int[] s, int[] e){
+        int n = board.length; // 가로(행)
+        int m = board[0].length; // 세로(열)
+
+        // 다익스트라 비용 초기화
+        int[][] cost = new int[n][m];
+        for(int i = 0; i < n; i++) Arrays.fill(cost[i], Integer.MAX_VALUE);
+        cost[s[0]][s[1]] = 0; // 출발지점 비용 초기화
+
+        PriorityQueue<int[]> pQ = new PriorityQueue<>((a, b) -> a[2] - b[2]);
+        pQ.offer(new int[]{s[0], s[1], 0});
+
+        // 다익스트라 최소 격자 이동 수
+        while (!pQ.isEmpty()) {
+            int[] cur = pQ.poll();
+
+            if (cur[2] > cost[cur[0]][cur[1]]) continue;// BFS에서 체크한 지점 안가는 것도 동일한 효과의 역할
+            if (cur[0] == e[0] && cur[1] == e[1]) return cost[cur[0]][cur[1]]; // 도착지점에 도착했을 때 반환
+
+            // 겪자밖 또는 벽을 만날때까지 이동
+            for(int[] dir : new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}) { // 방향 배열 (상하좌우)
+                int nx = cur[0]; // 행
+                int ny = cur[1]; // 열
+                int cnt = cur[2]; // 이동거리
+
+                // 빈공간일 경우에만 쭉 이동해서 벽의 지점까지 도착해서 멈춘다.
+                while (nx >= 0 && nx < n && ny >= 0 && ny < m && board[nx][ny] == 0) {
+                    nx += dir[0]; // 멈추는 행 지점
+                    ny += dir[1];  // 멈추는 열 지점
+                    cnt++; // 멈추는 지점까지 이동거리
+                }
+                // 그러므로 벽 지점의 위치와, 이동거리를 빼준다.
+                nx -= dir[0];
+                ny -= dir[1];
+                cnt--;
+
+                if (cost[nx][ny] > cnt){
+                    cost[nx][ny] = cnt;
+                    pQ.offer(new int[]{nx, ny, cnt});
+                }
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        Ex08_05_Answer T = new Ex08_05_Answer();
+        System.out.println(T.solution(new int[][]{{0, 0, 1, 0, 0, 0}, {0, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 1, 0}, {1, 0, 1, 1, 1, 0}, {1, 0, 0, 0, 0, 0}}, new int[]{1, 0}, new int[]{4, 5}));
+        System.out.println(T.solution(new int[][]{{0, 0, 1, 0, 0, 0}, {0, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 1, 0}, {1, 0, 1, 1, 1, 0}, {1, 0, 0, 0, 0, 0}}, new int[]{0, 0}, new int[]{4, 2}));
+        System.out.println(T.solution(new int[][]{{1, 0, 1, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 1, 0}, {1, 1, 0, 1, 1}, {0, 0, 0, 0, 0}}, new int[]{0, 3}, new int[]{4, 2}));
+        System.out.println(T.solution(new int[][]{{0, 1, 0, 1, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 1, 0}, {0, 1, 1, 0, 1, 1}, {0, 0, 0, 0, 0, 0}}, new int[]{0, 0}, new int[]{4, 5}));
+        System.out.println(T.solution(new int[][]{{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 1, 0, 0, 0}, {0, 0, 1, 0, 0, 0, 0, 0}}, new int[]{0, 0}, new int[]{4, 3}));
+    }
+}
+```
+
+# 6. 교육과정 (위상정렬, 인접리스트, LinkedList)
+- 현수가 n개의 과목을 모두 이수할 수 있는 순서를 배열 반환
+- 답이 여러개면 그 중 아무거나 반환
+- 조건 : 
+  - 교육과목에는 선수과목이 있습니다. 
+  - 만약 ["art math"]라는 정보는 art과목을 수강하기 위해서 는 math과목을 먼저 수강해야 합니다.
+
+```java
+public class Ex08_06_04_Answer {
+    /**
+     *
+     * @param subjects : 과목목록
+     * @param course : 선수과목 정보
+     * @return 이수과목 배열 
+     */
+    public String[] solution(String[] subjects, String[] course){
+        int n = subjects.length; // 전과목 개수
+
+        // 과목별 인덱싱
+        HashMap<String, Integer> subjectsHash = new HashMap<>();
+        for (int idx = 0; idx < n; idx++) {
+            subjectsHash.put(subjects[idx], idx);
+        }
+
+        // 인접리스트 초기화 (선수과목 - 교육과목들)
+        ArrayList<ArrayList<Integer>> relation = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            relation.add(new ArrayList<>());
+        }
+        int[] indegree = new int[n]; // 진입차수 초기화
+        for (String info : course) {
+            int preSubIdx = subjectsHash.get(info.split(" ")[1]);
+            int postSubIdx = subjectsHash.get(info.split(" ")[0]);
+            //선수과목의 교육과목들 셋팅(선수과목 먼저 수강 후, 들을 수 있는 수강과목들 넣기)
+            relation.get(preSubIdx).add(postSubIdx);
+            indegree[postSubIdx]++; // 해당 수강과목은 선수과목이 있다는 뜻으로 진입차수 증감 (선수과목 개수 카운팅)
+        }
+
+        // 위상정렬 알고리즘 수행
+        ArrayList<Integer> result = new ArrayList<>();
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            if (indegree[i] == 0) q.offer(i); // 선수과목이 없는 교육과목부터 탐색
+        }
+        while (!q.isEmpty()) {
+            int sub = q.poll();
+            result.add(sub); 
+            for (Integer x : relation.get(sub)) {
+                indegree[x]--;
+                if (indegree[x] == 0) q.offer(x);
+            }
+        }
+
+        // 정답 반환
+        String[] answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            answer[i] = subjects[result.get(i)];
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Ex08_06_04_Answer T = new Ex08_06_04_Answer();
+        System.out.println(T.solution(new String[]{"english", "math", "physics", "art", "music"}, new String[]{"art math", "physics art", "art music", "physics math", "english physics"}));
+        System.out.println(T.solution(new String[]{"art", "economics", "history", "chemistry"}, new String[]{"chemistry history", "economics history", "art economics"}));
+        System.out.println(T.solution(new String[]{"math", "science", "music", "biology"}, new String[]{"science music", "math music", "math science", "biology math"}));
     }
 }
 ```

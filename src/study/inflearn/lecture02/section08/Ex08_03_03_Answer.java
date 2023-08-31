@@ -19,8 +19,9 @@ public class Ex08_03_03_Answer {
 
         while (!pq.isEmpty()) {
             int[] cur = pq.poll();
-
-            if (cur[2] > cost[cur[0]][cur[1]]) continue; // 이미 최대값으로 초기화 되어 있는데, 그것보다 크면 스킵해야된다.
+            // ✨ 꺼낸 지점의 최신화된 비용보다 꺼낸 지점의 비용이 더 크다면 다음 레벨 뻗지 않는다.
+            // 최소값을 구하는 문제이므로, 이미 최소비용이 있기 때문에 더 이상 다음 레벨을 계산하지 않는다.
+            if (cur[2] > cost[cur[0]][cur[1]]) continue;
 
             for (int[] dir : new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}) {
                 int nx = cur[0] + dir[0];
@@ -39,6 +40,7 @@ public class Ex08_03_03_Answer {
     }
 
     public static void main(String[] args){
+        // 문제 : 현수가 (0, 0) 지점에서 (n-1, m-1)지점까지 가기 위해서 허물어야 하는 최소 벽의 개수
         Ex08_03_03_Answer T = new Ex08_03_03_Answer();
         System.out.println(T.solution(new int[][]{{0, 1, 1, 0}, {1, 0, 0, 1}, {0, 1, 0, 0}}));
         System.out.println(T.solution(new int[][]{{0, 1, 1, 0},{1, 1, 0, 1},{0, 0, 1, 0}, {0, 1, 1, 1}, {0, 1, 1, 0}}));

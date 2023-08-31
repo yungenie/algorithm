@@ -9,13 +9,13 @@ import java.util.PriorityQueue;
  */
 public class Ex08_05_Answer {
     public int solution(int[][] board, int[] s, int[] e){
+        int n = board.length; // 가로(행)
+        int m = board[0].length; // 세로(열)
 
         // 다익스트라 비용 초기화
-        int n = board.length;
-        int m = board[0].length;
         int[][] cost = new int[n][m];
         for(int i = 0; i < n; i++) Arrays.fill(cost[i], Integer.MAX_VALUE);
-        cost[s[0]][s[1]] = 0;
+        cost[s[0]][s[1]] = 0; // 출발지점 비용 초기화
 
         PriorityQueue<int[]> pQ = new PriorityQueue<>((a, b) -> a[2] - b[2]);
         pQ.offer(new int[]{s[0], s[1], 0});
@@ -24,21 +24,22 @@ public class Ex08_05_Answer {
         while (!pQ.isEmpty()) {
             int[] cur = pQ.poll();
 
-            if (cur[2] > cost[cur[0]][cur[1]]) continue;// BFS에서 체크한 지점 안가는 것도 동일한 효과
-            if (cur[0] == e[0] && cur[1] == e[1]) return cost[cur[0]][cur[1]];
+            if (cur[2] > cost[cur[0]][cur[1]]) continue;// BFS에서 체크한 지점 안가는 것도 동일한 효과의 역할
+            if (cur[0] == e[0] && cur[1] == e[1]) return cost[cur[0]][cur[1]]; // 도착지점에 도착했을 때 반환
 
             // 겪자밖 또는 벽을 만날때까지 이동
-            for(int[] dir : new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}) { // 방향 배열 (상하좌우)
-                int nx = cur[0];
-                int ny = cur[1];
+            for(int[] dir : new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}) { // 방향 배열 (상하좌우)
+                int nx = cur[0]; // 행
+                int ny = cur[1]; // 열
                 int cnt = cur[2]; // 이동거리
 
-                // 빈공간일 경우에만 쭉 이동
+                // 빈공간일 경우에만 쭉 이동해서 벽의 지점까지 도착해서 멈춘다.
                 while (nx >= 0 && nx < n && ny >= 0 && ny < m && board[nx][ny] == 0) {
-                    nx += dir[0];
-                    ny += dir[1];
-                    cnt++;
+                    nx += dir[0]; // 멈추는 행 지점
+                    ny += dir[1];  // 멈추는 열 지점
+                    cnt++; // 멈추는 지점까지 이동거리
                 }
+                // 그러므로 벽 지점의 위치와, 이동거리를 빼준다.
                 nx -= dir[0];
                 ny -= dir[1];
                 cnt--;
