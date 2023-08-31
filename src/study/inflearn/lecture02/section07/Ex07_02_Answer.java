@@ -10,7 +10,7 @@ public class Ex07_02_Answer {
     public int solution(int[] pool, int a, int b, int home){
 
         // 방문한 위치 체크 초기화
-        int[][] ch = new int[2][10001]; // 행 : 점프 위치, 열 : 첫번째-앞점프(0), 두번째-뒤점프(1)
+        int[][] ch = new int[2][10001]; // 열 : 첫번째-앞점프(0), 두번째-뒤점프(1), 행 : 점프 위치
         // 웅덩이 지점 못가게 체크
         for (int x : pool) {
             ch[0][x] = 1; // 0행:앞으로 점프
@@ -18,10 +18,10 @@ public class Ex07_02_Answer {
         }
 
         Queue<int[]> Q = new LinkedList<>();
+        Q.offer(new int[]{0, 0}); // {점프한 위치(배열의 인덱스), 점프 앞(0)/뒤(1) 플러그}
         // 현수 위치 체크
         ch[0][0] = 1;
         ch[1][0] = 1;
-        Q.offer(new int[]{0, 0}); // {점프한 위치(배열의 인덱스), 점프 앞(0)/뒤(1) 플러그}
 
         int L = 0;
         while(!Q.isEmpty()){

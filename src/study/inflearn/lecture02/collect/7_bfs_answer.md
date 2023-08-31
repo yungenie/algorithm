@@ -1,4 +1,4 @@
-# BFS(넓이우선탐색) 정답 코드 정리
+# BFS(너비우선탐색) 정답 코드 정리
 
 # 목차
 1. 타일점프 (수직선상 집에서 상점까지 가는 최소 점프 횟수, 출발/도착 대상 : 문제 그대로, 이동하는 지점의 방문 조건 : 1차원 체크배열, 이동거리 누적 안함, 최소값 : 레벨 반환)
@@ -88,7 +88,7 @@ public class Ex07_02_Answer {
     public int solution(int[] pool, int a, int b, int home){
 
         // 방문한 위치 체크 초기화
-        int[][] ch = new int[2][10001]; // 행 : 점프 위치, 열 : 첫번째-앞점프(0), 두번째-뒤점프(1)
+        int[][] ch = new int[2][10001]; // 열 : 첫번째-앞점프(0) 두번째-뒤점프(1), 행 : 점프 위치
         // 웅덩이 지점 못가게 체크
         for (int x : pool) {
             ch[0][x] = 1; // 0행:앞으로 점프
@@ -96,11 +96,11 @@ public class Ex07_02_Answer {
         }
 
         Queue<int[]> Q = new LinkedList<>();
+        Q.offer(new int[]{0, 0}); // {점프한 위치(배열의 인덱스), 점프 앞(0)/뒤(1) 플러그}
         // 현수 위치 체크
         ch[0][0] = 1;
         ch[1][0] = 1;
-        Q.offer(new int[]{0, 0}); // {점프한 위치(배열의 인덱스), 점프 앞(0)/뒤(1) 플러그}
-
+        
         int L = 0;
         while(!Q.isEmpty()){
             int len = Q.size();
@@ -160,7 +160,7 @@ public class Ex07_02_Answer {
 ```java
 public class Ex07_03_Answer {
   public int solution(int s, int e) {
-    int[][] ch = new int[2][200001]; // 행 : 이동한 위치, 열 : 짝수0/홀수1 레벨(시간)
+    int[][] ch = new int[2][200001]; // 열 : 짝수0/홀수1 레벨(시간), 행 : 이동한 위치
     ch[0][s] = 1;
     Queue<Integer> Q = new LinkedList<>();
     Q.offer(s); // 현수 이동한 위치 넣기

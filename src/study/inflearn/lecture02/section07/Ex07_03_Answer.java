@@ -8,7 +8,7 @@ import java.util.Queue;
  */
 public class Ex07_03_Answer {
     public int solution(int s, int e){
-        int[][] ch = new int[2][200001]; // 행 : 이동한 위치, 열 : 짝수0/홀수1 레벨(시간)
+        int[][] ch = new int[2][200001]; // 열 : 짝수0/홀수1 레벨(시간), 행 : 이동한 위치
         ch[0][s] = 1;
         Queue<Integer> Q = new LinkedList<>();
         Q.offer(s); // 현수 이동한 위치 넣기
