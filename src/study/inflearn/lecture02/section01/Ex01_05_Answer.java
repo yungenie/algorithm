@@ -12,33 +12,32 @@ public class Ex01_05_Answer {
         int answer = 0;
         int n = nums.length;
 
-        // 수열의 봉우리지점 찾아 배열에 인덱스(봉우리지점) 담기
+        // 수열의 봉우리지점 인덱스 담기  이전 < 현재(봉우리) > 이후
         ArrayList<Integer> peaks = new ArrayList<>();
-        for (int i = 1; i < n - 1; i++) {
+        for (int i = 1; i < n - 1; i++) { // 배열의 n-2까지 도는 이유는 i+1까지 보기 때문.
             if (nums[i-1] < nums[i] && nums[i] > nums[i+1]) {
                 peaks.add(i);
             }
         }
 
-        // 봉우리지점 인덱스 탐색하면서, 지점의 양방향 하나씩 각각 돌면서 최대 바이토닉 수열의 길이 찾기
+        // 봉우리지점 인덱스를 기준으로 양방향으로 바이토닉 수열의 개수 구하기
         for(int x : peaks){
-            int left = x; //왼쪽방향 index
-            int right = x; //오른쪽방향 index
-            int cnt = 1; //봉우리지점 길이 초기 셋팅
+            int left = x; // 왼쪽방향 인덱스
+            int right = x; // 오른쪽방향 인덱스
+            int cnt = 1; // 봉우리지점 카운팅
 
             // 연속부분수열 측정
-            while(left-1 >= 0 && nums[left-1] < nums[left]){ //왼쪽 탐색
-                left--;
-                cnt++;
+            while(left-1 >= 0 && nums[left] > nums[left-1]){ //왼쪽 탐색
+                left--; // 왼쪽방향 인덱스 감소
+                cnt++; // 바이토닉 수열의 개수
             }
             while(right+1 < n && nums[right] > nums[right+1]){ //오른쪽 탐색
-                right++;
-                cnt++;
+                right++; // 오른쪽방향 인덱스 감소
+                cnt++; // 바이토닉 수열의 개수
             }
             //가장 긴 바이토닉 수열의 길이
             answer = Math.max(answer, cnt);
         }
-
         return answer;
     }
 
@@ -50,12 +49,3 @@ public class Ex01_05_Answer {
         System.out.println(T.solution(new int[]{1, 3, 1, 2, 1, 5, 3, 2, 1, 1}));
     }
 }
-
-
-
-/*
-ArrayList : 저장 순서가 유지되고, 중복을 허용함.
-순차적인 데이터 추가/삭제 빠름, 데이터 읽기 빠름.
-데이터 크기를 변경하기 비효율적이다.
-
- */

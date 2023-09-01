@@ -10,7 +10,7 @@ public class Ex01_07 {
         int answer = 0;
         char[] pwdChar = password.toCharArray();
 
-        // 행열 키패드
+        // 키패드 숫자들 배열에 초기화
         int[][] keypadArr = new int[3][3];
         int index = 0;
         for (int i = 0; i < 3; i++) {
@@ -22,27 +22,23 @@ public class Ex01_07 {
 
         // 비밀번호가 입력되는 총 시간
         int first = 0, tempi = 0, tempj = 0;
-        for (char c : pwdChar) {
+        for (char c : pwdChar) { // 패스워드 숫자와 동일한 키패드 행열 찾기
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    // password 숫자와 동일한 행열 찾기
                     if (keypadArr[i][j] == Character.getNumericValue(c)) {
-                        first++;
-                        // 이동 시간 = 현재 위치와 그 다음 위치의 차이 구하기(절대값) 및 최대값
-                        if (first != 1 ) { // 처음 값은 temp에 저장만 해놓기.
+                        if (first != 0) {
                             int a = Math.abs(tempi - i);
                             int b = Math.abs(tempj - j);
                             int max = Math.max(a, b);
                             answer += max;
-                        }
+                        } // 키패드 첫 패스워드 0초 이기 때문에 그 다음 패스워드부터 걸리는 시간 카운팅
                         tempi = i;
                         tempj = j;
-                        break;
+                        first++;
                     }
                 }
             }
         }
-
         return answer;
     }
 
