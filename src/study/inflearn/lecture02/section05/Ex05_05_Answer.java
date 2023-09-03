@@ -41,25 +41,19 @@ public class Ex05_05_Answer {
         // 학생마다 얻을 수 있는 최대 점수
         HashMap<Character, Integer> map = new HashMap<>(); // 팀에 따른 공격력 누적
         int j = 0, total = 0;
-        for (int i = 1; i < n; i++) {
-            /*for (; j < n; j++) { // i 증감에 따라 j초기화 되는 게 아니고 i에 따라 j도 증감되므로 시간복잡도 O(n)
-                if (list.get(j).power < list.get(i).power) {
-                    total += list.get(j).power; // 공격 누적
-                    char c = list.get(j).temm; // 팀
-                    map.put(c, map.getOrDefault(c, 0) + list.get(j).power); // 팀 공격력 해싱
-                }
-                else break;
-            }*/
-
+        // 1번 학생부터 시작
+        for (int i = 1; i < n; i++) { // 0번은 자기보다 공격력이 작은 학생이 없으므로 1번부터 시작.
+            // 1번 학생부터 마지막 학생까지 얻을 수 있는 최대점수
             while (j < n) {
                 if (list.get(j).power < list.get(i).power) {
                     total += list.get(j).power; // 공격 누적
                     char c = list.get(j).temm; // 팀
-                    map.put(c, map.getOrDefault(c, 0) + list.get(j).power); // 팀 공격력 해싱
+                    // 본인팀 공격력 누적
+                    map.put(c, map.getOrDefault(c, 0) + list.get(j).power);
                     j++;
                 } else break;
             }
-
+            // 학생의 최대점수에서 학생의 팀 공격력은 제외
             answer[list.get(i).idx] = total - map.getOrDefault(list.get(i).temm, 0); // 최대점수 (같은 팀 공격력 제외)
         }
         return answer;

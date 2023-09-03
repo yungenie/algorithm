@@ -20,6 +20,7 @@ public class Ex05_04 {
         }
         Collections.sort(pg, (a,b) -> b[1] - a[1]); // 성장 기간이 가장 긴 꽃씨 내림차순
 
+        // 성장 기간이 가장 긴 꽃시 먼저 심기
         int start = 0, end = 0;
         for (int[] x : pg) {
             start = start + x[0]; // 꽃 심기

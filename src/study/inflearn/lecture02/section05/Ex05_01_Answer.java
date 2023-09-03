@@ -22,7 +22,7 @@ public class Ex05_01_Answer {
                 right--;
             } else {
                 answer++;
-                right--; // 무거운 승객 혼자 태우기
+                right--; // 오른쪽 무거운 승객 혼자 태우기
             }
         }
 

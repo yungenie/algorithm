@@ -10,39 +10,46 @@ import java.util.LinkedList;
 public class Ex05_06_Answer {
     public int solution(int n, int[][] trans, int[][] bookings){
         int answer=0;
-        int[] sum = new int[n + 1]; // n+1 이유? 0부터 누적합산하기 위함.
+        int[] tiket = new int[n + 1]; // n+1의 이유는 0부터 누적합산하기 위함.
 
-        // 기차역마다 최대 승차 인원수
+        // 주어진 trans 배열의 데이터로만 탑승 및 하차 인원 초기화
         for (int[] x : trans) {
-            sum[x[0]] += x[2]; // 출발역 수용인원 만큼 승차
-            sum[x[1]] -= x[2]; // 도착역 수용인원 만큼 하차
+            tiket[x[0]] += x[2]; // 출발역 수용인원 만큼 승차
+            tiket[x[1]] -= x[2]; // 도착역 수용인원 만큼 하차
         }
-        for (int i = 1; i < sum.length; i++) {
-            sum[i] = sum[i] + sum[i - 1]; // i번째 역에서 태울 수 있는 최대 인원
+        // 기차역마다 최대 승차 인원수
+        for (int i = 1; i < tiket.length; i++) {
+            tiket[i] = tiket[i] + tiket[i - 1]; // i번째 역에서 태울 수 있는 최대 인원
         }
+//        System.out.println(Arrays.toString(tiket));
+        // 승차역 오름차순
+        Arrays.sort(bookings, (a,b) -> a[0] - b[0]);
 
-        Arrays.sort(bookings, (a,b) -> a[0] - b[0]); // 승차역 오름차순
+        // 어린이 번호, 어린이 예약 총 수
+        int cidx = 0, cLen = bookings.length;
 
-        int idx = 0, bLen = bookings.length;
-        LinkedList<Integer> nums = new LinkedList<>();
-        for (int i = 1; i <= n ; i++) {
+        // 어린이 태우기 (도착역 번호 붙여서)
+        LinkedList<Integer> trains = new LinkedList<>();
+        for (int i = 1; i <= n ; i++) { // 기차역 탐색
 
             // 도착역에 내리는 어린이 하차 시키기
-            while(!nums.isEmpty() && nums.peek() == i) {
-                answer++;
-                nums.pollFirst();
+            while(!trains.isEmpty() && trains.peek() == i) {
+//                answer++;
+                trains.pollFirst(); // 도착역 오름차순으로 정렬했기 때문에 하차
             }
 
-            // 역마다 기차 태우기
-            while(idx < bLen && bookings[idx][0] == i) {
-                nums.add(bookings[idx][1]); // 도착역 추가
-                idx++;
+            // 각 예약정보의 해당 역에서 어린이 기차 태우기
+            while(cidx < cLen && i == bookings[cidx][0]) {
+                trains.add(bookings[cidx][1]); // 도착역 번호
+                cidx++;
+                answer++;
             }
-            Collections.sort(nums); // 도착역 오름차순
+            Collections.sort(trains); // 도착역 오름차순
 
             // 수용인원보다 넘치는 경우
-            while(nums.size() > sum[i]){
-                nums.pollLast(); // 가장 멀리가는 어린이 하차
+            while(trains.size() > tiket[i]){ // 기차에 탑승한 어린이 수보다 수용인원에 넘치는 경우
+                trains.pollLast(); // 가장 나중에 내리는 어린이 하차
+                answer--;
             }
         }
 
