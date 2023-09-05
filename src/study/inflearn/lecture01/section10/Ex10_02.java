@@ -14,16 +14,16 @@ public class Ex10_02 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        int[] dp = new int[N + 2]; //✨
-        //dp[0] = 0;
-        dp[1] = 1;
-        dp[2] = 2;
 
-        for (int i = 3; i <=N + 1 ; i++) { //✨
-            dp[i] = dp[i - 1] + dp[i - 2]; //✨
+        // dp[i]는 i번째 돌다리까지 건너뛰는 경우의 수
+        int[] dp = new int[N + 2]; // 개울 만나기 전/후 땅까지 포함해야함.
+        dp[1] = 1; // 돌다리 첫번째
+        dp[2] = 2; // 돌다리 두번째
+        for (int i = 3; i <=N + 1 ; i++) { // 돌다리 세번째부터 도착한 땅까지 탐색
+            dp[i] = dp[i - 1] + dp[i - 2]; // 이전 + 전전 경우의 수 합산
         }
 
-        System.out.println(dp[N+1]); //✨
+        System.out.println(dp[N+1]); // 도착한 땅
     }
 }
 
