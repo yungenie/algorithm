@@ -10,7 +10,7 @@ import java.util.Queue;
 public class Ex07_03_02 {
     public int solution(int s, int e){
         int[] dx = new int[]{-1, 1, 2};
-        int[][] ch = new int[2][200001]; // 행(0:홀수, 1:짝수) 레벨로 나누기
+        int[][] ch = new int[2][200001];
 
         Queue<Integer> Q = new LinkedList<>();
         Q.offer(s);

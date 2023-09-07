@@ -1,5 +1,6 @@
 package study.inflearn.lecture02.section07;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -8,11 +9,10 @@ import java.util.Queue;
  */
 public class Ex07_03_Answer {
     public int solution(int s, int e){
-        int[][] ch = new int[2][200001]; // 열 : 짝수0/홀수1 레벨(시간), 행 : 이동한 위치
+        int[][] ch = new int[2][200001]; // 행 : 짝수0/홀수1 레벨(시간), 열 : 이동한 위치
         ch[0][s] = 1;
         Queue<Integer> Q = new LinkedList<>();
         Q.offer(s); // 현수 이동한 위치 넣기
-
         int L = 0;
         while(!Q.isEmpty()){
             int len = Q.size();
