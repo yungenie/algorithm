@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study;
 
 /**
  * 이진트리 순회(깊이우선탐색) - DFS(Depth-First Search)

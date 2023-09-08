@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study;
 
 /**
  * 중복순열 - Permutation With Repetition

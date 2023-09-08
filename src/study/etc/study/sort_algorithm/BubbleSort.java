@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study.sort_algorithm;
 
 import java.util.Arrays;
 

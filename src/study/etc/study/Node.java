@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study;
 
 public class Node {
     int data;

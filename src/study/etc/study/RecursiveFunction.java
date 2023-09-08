@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study;
 
 /**
  * 재귀함수(스택프레임) - Recursive Function

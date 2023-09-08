@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study;
 
 /**
  * 피보나치 수 - 메모이제이션

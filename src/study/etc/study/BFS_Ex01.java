@@ -1,4 +1,4 @@
-package study.inflearn.study;
+package study.etc.study;
 
 import java.util.LinkedList;
 import java.util.Queue;
