@@ -2,7 +2,7 @@ package study.programmers.graph;
 
 import java.util.*;
 
-public class Level3_가장먼노드_Answer1 {
+public class Level3_가장먼노드_Answer {
     public int solution(int n, int[][] edge) {
 
         // 노드의 양방향 관계
@@ -45,7 +45,7 @@ public class Level3_가장먼노드_Answer1 {
                 .count();
     }
     public static void main(String[] args) {
-        Level3_가장먼노드_Answer1 T = new Level3_가장먼노드_Answer1();
+        Level3_가장먼노드_Answer T = new Level3_가장먼노드_Answer();
         System.out.println(T.solution(6, new int[][]{{3, 6}, {4, 3}, {3, 2}, {1, 3}, {1, 2}, {2, 4}, {5, 2}}));
     }
 }
