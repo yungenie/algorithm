@@ -12,12 +12,12 @@ public class Level3_순위_Answer {
             for (int s = 0; s < n ; s++) { // 출발
                 for (int e = 0; e < n; e++) {  // 도착
                     if (graph[s][k] == 1 && graph[k][e] == 1) {
-                        graph[s][e] = 1;
-                        graph[e][s] = -1;
+                        graph[s][e] = 1; // 출발노드가 도착노드를 이긴다.
+                        graph[e][s] = -1;  // 도착노드는 출발도느에게 진다.
                     }
                     if (graph[s][k] == -1 && graph[k][e] == -1) {
-                        graph[s][e] = -1;
-                        graph[e][s] = 1;
+                        graph[s][e] = -1; // 출발노드는 도착노드에게 진다.
+                        graph[e][s] = 1; // 도착노드는 출발노드를 이긴다.
                     }
                 }
             }
@@ -27,9 +27,9 @@ public class Level3_순위_Answer {
         for (int i = 0; i < n; i++) {
             int count = 0;
             for (int j = 0; j < n; j++) {
-                if (graph[i][j] !=0) count++;
+                if (graph[i][j] !=0) count++; // 자기자신은 제외
             }
-            if (count == n-1) answer++;
+            if (count == n-1) answer++; // 자기자신을 제외하고 게임의 결과가 있다는 뜻.
         }
 
         return answer;
