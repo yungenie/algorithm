@@ -24,7 +24,7 @@
 3. \+  경우의 수를 먼저 탐색 한 다음, 재귀함수 백트랙킹으로 - 경우의 수를 계산한다.
 4. 이렇게 하면 모든 경우의 수를 탐색해서 target이 되는 값을 찾을 수 있다.
 
-![img.png](level2_타겟넘버_depth.png)
+![img.png](level2_타겟넘버_depth.png) 
 ![img.png](level2_타겟넘버_스택.png)
 
 
