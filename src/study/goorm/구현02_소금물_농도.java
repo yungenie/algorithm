@@ -28,12 +28,7 @@ public class 구현02_소금물_농도 {
          * 소수점 둘째 자리까지 표현하기. (반올림 없이 셋째자리는 버림)
          */
         // 방법1.
-        double result1 = Math.floor(concentration * 100);
-        double result2 = result1 / 100.0;
-
-        System.out.printf("%.2f", result2);
-        System.out.println("asdfasdf");
-        //System.out.printf("%.2f", Math.floor(concentration * 100) / 100.0);
+        System.out.printf("%.2f", Math.floor(concentration * 100) / 100.0);
 
         // 방법2. BigDecimal을 사용하여 소수점 둘째 자리까지 버림 처리
         //BigDecimal result = new BigDecimal(concentration).setScale(2, RoundingMode.FLOOR);
