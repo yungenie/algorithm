@@ -1,4 +1,4 @@
-package study.goorm;
+package study.goorm.유형트레이닝;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
