@@ -1,9 +1,7 @@
-package study.goorm;
+package study.goorm.유형트레이닝;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.StringTokenizer;
 
 public class 구현02_소금물_농도 {
