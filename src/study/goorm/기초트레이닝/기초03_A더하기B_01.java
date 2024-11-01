@@ -4,16 +4,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 기초03_A더하기B {
+public class 기초03_A더하기B_01 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        double a = Double.parseDouble(st.nextToken());
-        double b = Double.parseDouble(st.nextToken());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
 
-        // 실수 합한 값을 소수 6번째 까지 출력
-        double sum = a + b;
+        System.out.println(a+b);
 
-        System.out.printf("%.6f", sum);
+
     }
 }
