@@ -18,7 +18,7 @@ public class 구현07_단풍나무 {
     public static void bfs(int sx, int sy) {
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{sx, sy});
-        visited[sx][sy] = true; // todo 왜 미리?
+        visited[sx][sy] = true; // 탐색 큐에 넣고 체크
 
         while (!queue.isEmpty()) {
             int[] current = queue.poll();
@@ -29,16 +29,17 @@ public class 구현07_단풍나무 {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
 
-                if (nx >= 0 && ny >= 0 && nx < N && ny < N && visited[nx][ny] == false) { // todo visited[nx][ny] == false 조건 왜?
+                if (nx >= 0 && ny >= 0 && nx < N && ny < N && visited[nx][ny] == false) {
                     if (graph[nx][ny] == 0) { // 인접구역 살펴봤는데 물든 지역이면 큐에 넣어.
                         // 물든 구역
                         queue.offer(new int[]{nx, ny});
-                        visited[nx][ny] = true; // todo 왜?
+                        visited[nx][ny] = true; // 큐에 미리 넣어. 시간 단축을 위한 처리.
                     } else { // 인접구역 살펴봤는데 아직 물들지 않았어. 그러면 --하고 뺐을때 0인 경우 다음날 물들 수 있게 처리.
                         // 인접 구역의 단풍나무 수 감소
                         graph[nx][ny]--;
                         if (graph[nx][ny] == 0) {
-                            graph[nx][ny] = -1; // 다음 단계에서 물들 수 있도록 표시 todo 왜...?
+                            graph[nx][ny] = -1;
+                            // 0이면 바로 물든 구역으로 되버리니깐, 아직 남은 인접한 구역 처리를 위해서 음수로 처리하고, 하루가 끝나면 물든 구역으로 표시
                         }
                     }
                 }
