@@ -16,9 +16,9 @@ public class 자료구조01_0커플 {
 
         Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < N; i++) {
-            // 해당 값이 있으면 삭제하고, 없으면 넣어.
+            // 해당 키값이 있으면 삭제하고, 없으면 넣어.
             int absValue = Math.abs(people[i]);
-            if (hashMap.get(absValue) != null && hashMap.get(absValue) >= -200000) {
+            if (hashMap.containsKey(absValue)) {
                 hashMap.remove(absValue);
             } else {
                 hashMap.put(absValue, people[i]);
