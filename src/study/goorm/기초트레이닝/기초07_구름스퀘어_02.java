@@ -22,7 +22,7 @@ class Event implements Comparable<Event> {
     }
 }
 
-public class 기초07_구름스퀘어02 {
+public class 기초07_구름스퀘어_02 {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine()); // 행사의 개수
