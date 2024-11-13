@@ -2,7 +2,6 @@ package study.goorm.기초트레이닝;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class 기초09_수열_02 {
 
