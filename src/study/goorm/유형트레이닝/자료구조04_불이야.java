@@ -48,14 +48,14 @@ public class 자료구조04_불이야 {
             int nowCount = now[0];
             int x = now[1];
             int y = now[2];
-            int nextCount = nowCount + 1; // todo
+            int nextCount = nowCount + 1;
 
             for (int[] dxy: new int[][]{{-1, 0}, {0, -1},{1, 0}, {0, 1}}) {
                 int nx = x + dxy[0];
                 int ny = y + dxy[1];
 
                 if (nx >= 0 && ny >= 0 && nx < R && ny < C && !visited[nx][ny]) {
-                    if (array[nx][ny].equals("&")) { // todo
+                    if (array[nx][ny].equals("&")) { // &인데 $로 착각했음..^^
                         count = nowCount;
                         find = true;
                         break;
