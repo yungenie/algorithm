@@ -13,8 +13,8 @@ public class StringDuplicationRemoveTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Object[] array = Arrays.stream(sc.nextLine().split(""))
-                .filter(s -> !s.isBlank())
+        Object[] array = Arrays.stream(sc.nextLine().split("")) // 문자 낱개로 나누기.
+                .filter(s -> !s.isBlank()) // " " or "" 가 아닌 문자열만 배열로 취합.
                 .toArray();
 
         Arrays.stream(array)
