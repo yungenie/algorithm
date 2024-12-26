@@ -14,14 +14,13 @@ public class 기초16_Queue {
         int K = Integer.parseInt(st.nextToken());
 
         Queue<Integer> q = new LinkedList<>();
-
         for (int i = 0; i < N; i++) {
-            String[] line = br.readLine().split(" ");
-            String cmd = line[0];
+            st = new StringTokenizer(br.readLine());
+            String cmd = st.nextToken();
 
             int value = 0;
-            if (line.length > 1) {
-                value = Integer.parseInt(line[1]);
+            if (st.hasMoreElements()) {
+                value = Integer.parseInt(st.nextToken());
             }
 
             switch (cmd) {
