@@ -15,6 +15,8 @@ public class 기초21_RGB주차장_02 {
         // 초기화: 이전 칸에서 R, G, B의 경우의 수
         int prevR = 1, prevG = 1, prevB = 1;
         final int MOD = 100_000_007;
+
+        // i번째 칸에서의 경우의 수는 이전 칸에서의 가능한 색의 조합에 의해 결정 됩니다.
         for (int i = 2; i <= N; i++) {
             int currR = (prevG + prevB) % MOD; // i번째 칸이 빨강일때, i-1번째 칸은 초록 또는 파랑의 경우의 수 합
             int currG = (prevR + prevB) % MOD; // i번째 칸이 초록일때, i-1번째 칸은 빨강 또는 파랑의 경우의 수 합
