@@ -13,6 +13,12 @@ public class 기초02_대소문자바꾸기 {
         for (int i=0; i < N; i++) {
             int num = (int) S.charAt(i); // 아스키코드 변환
 
+            /**
+             * 아스키코드
+             * 대문자 65~90
+             * 소문자 97~122
+             * 차이 32
+             */
             int temp = 0;
             if (num >= 65 && num <= 90) { // 대문자 -> 소문자
                 temp = 32;
