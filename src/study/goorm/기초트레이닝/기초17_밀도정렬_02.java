@@ -22,13 +22,14 @@ public class 기초17_밀도정렬_02 {
             matterList.add(new Matter(i, w, v ));
         }
 
-        Collections.sort(matterList);
-        System.out.println(matterList.get(0).number);
+        Collections.sort(matterList); // 기준에 따라 정렬
+        System.out.println(matterList.get(0).number); // 첫번째 요소가 가장 밀도가 높은 물질의 번호임
 
 
     }
 }
 
+// 더 무거운 밀도가 첫번째로 정렬되도록 처리
 class Matter implements Comparable<Matter> {
 
     int number; // 번호
@@ -49,11 +50,11 @@ class Matter implements Comparable<Matter> {
 
         if (matter == matter2) { // 밀도 동일한 경우
             if (weight == o.weight) { // 무게도 동일한 경우
-                return number - o.number; // 작은 번호
+                return number - o.number; // 작은 번호 (오름차순)
             }
             return o.weight - weight; // 더 무거운 무게
         }
 
-        return Double.compare(matter, matter2); // 높은 물질 반환
+        return Double.compare(matter2, matter); // 높은 물질 반환
     }
 }
