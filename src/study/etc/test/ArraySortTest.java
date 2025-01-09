@@ -1,12 +1,11 @@
 package study.etc.test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArraySortTest {
     public static void main(String[] args) {
-        // 1차원 배열 정렬 (기본타입)
+        /** 1차원 배열 정렬 (오름차순) **/
         int[] intArr = new int[3]; // int[] arrTest = {10, 1, 7}
         intArr[0] = 10;
         intArr[1] = 1;
@@ -20,32 +19,32 @@ public class ArraySortTest {
          */
         Arrays.sort(intArr); // 기본 타입 배열(int[], double[], char[])과 참조 타입 배열 대해 기본적인 오름차순 정렬 알고리즘 제공
 
+        // 1차원 배열 정렬 (참조 및 Wrapper 래퍼 타입) Wrapper : 기본 타입을 객체로 감싼 것.
+        Integer[] aaa = {9, 2, 6};
+        Arrays.sort(aaa);
+        System.out.println(Arrays.toString(aaa));
 
-        // 1차원 배열 정렬 (기본타입) 내림차순 - 방법1
+        String[] strArr = {"b", "f", "a"};
+        Arrays.sort(strArr);
+        System.out.println(Arrays.toString(strArr));
+
+        /** 1차원 배열 정렬 (내림차순) 비교자 Comparator */
         intArr = Arrays.stream(intArr)
                 .boxed()
                 .sorted(Comparator.reverseOrder())
                 .mapToInt(Integer::intValue)
                 .toArray();
 
-        // 1차원 배열 정렬 (기본타입) 내림차순 - 방법2
         Integer[] integerArr = Arrays.stream(intArr)
                 .boxed()
                 .toArray(Integer[]::new);
         Arrays.sort(integerArr, Collections.reverseOrder());
 
-
-        // 1차원 배열 정렬 (참조 및 Wrapper 래퍼 타입) Wrapper : 기본 타입을 객체로 감싼 것.
-        Integer[] aaa = {9, 2, 6};
-        Arrays.sort(aaa);
-        System.out.println(Arrays.toString(aaa));
-
-
         // 2차원 배열 정렬
         /**
          * Integer.compare() 사용하는 이유
          * a[0] - b[0] 뺄셈의 결과로 타입의 범위가 초과될때 오버플로우 될 수 있어
-         * 뺄셈이 아닌 비교연산을 사용하는 compare() 이나 comparingInt() 메서드를 사용하면 안전하다.
+         * 뺄셈 연산보다는 비교연산을 사용하는 compare() 이나 comparingInt() 메서드를 사용하면 안전하다.
          * Arrays.sort(events, Comparator.comparingInt(a -> a[0]));
          */
         int[][] events = new int[2][2];
@@ -62,13 +61,19 @@ public class ArraySortTest {
         // Arrays.sort(line, Comparator.comparingInt(a -> a[0])); //(a, b) -> a[0] - b[0]
 
 
+        List<Integer> list = new ArrayList<>();
+        list.add(8);
+        list.add(7);
 
-        String[] strArr = {"b", "f", "a"};
-        Arrays.sort(strArr);
-        System.out.println(Arrays.toString(strArr));
-
-
-
-
+        for (Integer i : list) {
+            System.out.print(i);
+        }
+        System.out.println("");
+        list.sort(Comparator.naturalOrder());
+        list.stream().sorted(Comparator.naturalOrder());
+        //Collections.sort(list);
+        for (Integer i : list) {
+            System.out.print(i);
+        }
     }
 }

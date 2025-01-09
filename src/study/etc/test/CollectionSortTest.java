@@ -12,6 +12,7 @@ public class CollectionSortTest {
         list.sort(null);
         Collections.sort(list);
         System.out.println(list);
+        System.out.println(Collections.min(list));
 
         // List 타입이 기본형 1차원 배열 타입으로 요소가 1개만 있는 경우 기본정렬 (오름차순)
         List<int[]> listIntArr1 = new ArrayList<>();
