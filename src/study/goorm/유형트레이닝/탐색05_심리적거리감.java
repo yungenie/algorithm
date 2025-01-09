@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 
 /**
  * 4시 05분 시작 - 4시 46분 완료. 성공!
+ * 해당문제에서 다익스트라를 활용하지 않는 이유는 가중치가 따로 없는 문제이며,
+ * 최단거리가 동일한 경우 노드의 높은 번호를 출력해야하는 조건이 생기기 때문에 우선순위 큐로 처리하기 어려우므로 BFS로 처리.
  */
 public class 탐색05_심리적거리감 {
     public static void main(String[] args) throws Exception {
