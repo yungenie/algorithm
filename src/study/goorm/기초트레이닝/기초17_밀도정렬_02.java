@@ -22,7 +22,7 @@ public class 기초17_밀도정렬_02 {
             matterList.add(new Matter(i, w, v ));
         }
 
-        Collections.sort(matterList); // 기준에 따라 정렬
+        Collections.sort(matterList); // 판단 기준에 따라 정렬
         System.out.println(matterList.get(0).number); // 첫번째 요소가 가장 밀도가 높은 물질의 번호임
 
 
