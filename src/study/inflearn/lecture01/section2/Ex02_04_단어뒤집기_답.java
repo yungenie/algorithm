@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * 직접 뒤집기
+ * 짝이 되는 양쪽 뒤집기. Swap 교환
  */
 public class Ex02_04_단어뒤집기_답 {
 
