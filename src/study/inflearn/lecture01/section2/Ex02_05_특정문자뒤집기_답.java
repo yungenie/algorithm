@@ -9,6 +9,12 @@ public class Ex02_05_특정문자뒤집기_답 {
         char[] charArray = str.toCharArray();
         int lt = 0, rt = str.length() - 1;
         while (lt < rt) {
+            /*
+               lt        rt
+                a#b!GE*T@S
+                왼쪽, 오른쪽 문자가 특수문자일 경우 왼쪽(lt)은 증가, 오른쪽(rt)은 감소
+                왼쪽, 오른쪽 둘다 알파벳일 때 교환.
+             */
             if (!Character.isAlphabetic(charArray[lt])) lt++;
             else if (!Character.isAlphabetic(charArray[rt])) rt--;
             else {
