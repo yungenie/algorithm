@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Ex02_12_암호 {
 
-    public String solution(int n, String s) {
+    public String solution(String s) {
         StringBuilder result = new StringBuilder();
 
         int beginIndex = 0;
@@ -51,6 +51,6 @@ public class Ex02_12_암호 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         String s = sc.next();
-        System.out.println(T.solution(n, s));
+        System.out.println(T.solution(s));
     }
 }
