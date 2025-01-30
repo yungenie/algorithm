@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * 정답.
- * 30분 소
+ * 30분 소요
  */
 public class Ex03_10_봉우리 {
 
