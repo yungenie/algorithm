@@ -8,6 +8,7 @@ public class Ex03_12_멘토링_답 {
         int answer = 0;
 
         // 모든 경우의 수 (i,j) 구하기
+        // (1,1|2|3|4), (2,1|2|3|4), (3,1|2|3|4) ..
         for (int i = 1; i <= n ; i++) {
             for (int j = 1; j <= n; j++) {
                 int cnt = 0;
