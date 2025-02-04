@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * 틀림.
- * TC 1개 Time Limit Exce..
+ * TC 1개 Time Limit Exce.. O(n^2) 걸리기 때문에 슬라이딩 윈도우 알고리즘으로 적용 해야함.
  */
 public class Ex04_03_최대매출 {
 
