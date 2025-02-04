@@ -16,7 +16,6 @@ public class Ex04_03_최대매출_답 {
             sum += (saleInfo[i] - saleInfo[i-m]);
             maxSales = Math.max(maxSales, sum);
         }
-
         return maxSales;
     }
 
