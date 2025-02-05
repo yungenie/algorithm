@@ -37,12 +37,3 @@ public class Ex04_05_연속된자연수의합 {
         System.out.println(T.solution(n));
     }
 }
-
-/**
- * 2개 이상.
- * 대신, 연속된
- * 1 2 3 4 5 6 7... N
- *
- *
- *
- */
