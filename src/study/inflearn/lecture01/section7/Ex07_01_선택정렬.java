@@ -7,14 +7,12 @@ public class Ex07_01_선택정렬 {
     public int[] solution(int n, int[] arr) {
 
         /**
-         * 이중 for문으로
-         * i부터 j=i+1~ n까지 비교하면서
-         * idx = i 세팅하고
-         * arr[idx]보다 작은 arr[j] 값 구해서 idx 초기화
-         * arr[idx]랑 arr[i] 교환
+         * i는 0부터 n-1까지 메인 값을 선택하고
+         * j는 i+1부터 n까지 비교 후보 값 중 제일 작은 값의 인덱스를 구해
+         * 배열을 교환한다.
          */
         for (int i = 0; i < n-1; i++) {
-            int idx = i; // 작은 값 담기
+            int idx = i;
             for (int j = i+1; j < n; j++) {
                 if (arr[idx] > arr[j]) idx = j;
             }
