@@ -25,6 +25,7 @@ public class HashMapTest {
         System.out.println(map.computeIfAbsent("C", v -> 7)); // key 존재하는 경우 mappingFunction 무시하고 기존 value 반환
         System.out.println(map.computeIfAbsent("E", v -> 7)); // key 존재하지 않는 경우 mappingFunction 진행 후 변경 value 반환
         System.out.println(map.computeIfPresent("A", (key, value) -> value + 100)); // key 존재하는 경우 remappingFunction 진행 후 변경 value 반환
+        System.out.println(map.computeIfPresent("G", (key, value) -> value + 100)); // key 존재하지 않는 경우 null 반환
         System.out.println(map.compute("B", (key, value) -> value + 9)); // key 존재하는 경우만 remappingFunction 진행, key 없으면 예외 발생
         System.out.println(map);
 
